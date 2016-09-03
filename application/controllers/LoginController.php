@@ -10,7 +10,7 @@ class LoginController extends Zend_Controller_Action
 {
     public function loginAction()
     {
-        //action body
+            $this->_helper->layout->disableLayout();
     }
 
 }
