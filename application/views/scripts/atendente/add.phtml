@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/iCheck/custom.css'); ?>" rel="stylesheet">
+    <link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/steps/jquery.steps.css'); ?>" rel="stylesheet">
+
+    <style>
+
+        .wizard > .content > .body  position: relative; }
+
+    </style>
+</head>
+
+<body>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Cadastro</h5>
+            </div>
+            <div class="ibox-content">
+                <h2>
+                    Formulario
+                </h2>
+                <p>
+                    Este formulario irá cadastrar um novo atendente para o sistema.
+                </p>
+
+                <form id="form" action="#" class="wizard-big wizard clearfix" role="application" novalidate="novalidate">
+                    <div class="steps clearfix">
+                        <ul role="tablist">
+                            <li class="first current" role="tab" aria-disabled="false" aria-selected="true">
+                                <a id="form-t-0" aria-controls="form-p-0" href="#form-h-0">
+                                    <span class="current-info audible">current step: </span>
+                                    <span class="number">1.</span>
+                                    Dados
+                                </a>
+                            </li>
+                            <li class="done" role="tab" aria-disabled="false" aria-selected="false">
+                                <a id="form-t-1" aria-controls="form-p-1" href="#form-h-1">
+                                    <span class="number">2.</span>
+                                    Localização
+                                </a>
+                            </li>
+                            <li class="done" role="tab" aria-disabled="false" aria-selected="false">
+                                <a id="form-t-2" aria-controls="form-p-2" href="#form-h-2">
+                                    <span class="number">3.</span>
+                                    Contato
+                                </a>
+                            </li>
+                            <li class="last done" role="tab" aria-disabled="false" aria-selected="false">
+                                <a id="form-t-3" aria-controls="form-p-3" href="#form-h-3">
+                                    <span class="number">4.</span>
+                                    Finalizar
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content clearfix">
+                        <h1 tabindex="-1" class="title current" id="form-h-0">Dados</h1>
+                        <fieldset class="body current" id="form-p-0" role="tabpanel" aria-hidden="false" aria-labelledby="form-h-0" style="display: block;">
+                            <h2>Digite os seus dados pessoais</h2>
+                            <div class="row">
+                                <div align="right">
+                                    <span>* Campos Obrigatórios</span>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label>Nome Completo *</label>
+                                        <label class="error" id="erro-nome" style="display:none;" for="nome"></label>
+                                        <input id="nome" name="nome" type="text" class="form-control required valid" aria-invalid="false" aria-required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>C.P.F *</label>
+                                        <label class="error" id="erro-cpf" style="display:none;" for="cpf"></label>
+                                        <input id="cpf" aria-required="true" aria-invalid="false" name="cpf" type="text" class="form-control required valid">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>R.G *</label>
+                                        <label class="error" id="erro-rg" style="display:none;" for="rg"></label>
+                                        <input id="rg" aria-required="true" aria-invalid="false" name="rg" type="text" class="form-control required valid">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>E-Mail *</label>
+                                        <label class="error" id="erro-email" style="display:none;" for="nome"></label>
+                                        <input id="email" aria-invalid="false" aria-required="true" name="email" type="email" class="form-control required email valid">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="text-center">
+                                        <div style="margin-top: 20px">
+                                            <i class="fa fa-empire" style="font-size: 180px;color: #e5e5e5 "></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                        <h1 tabindex="-1" class="title" id="form-h-1">Localização</h1>
+                        <fieldset class="body" id="form-p-1" role="tabpanel" aria-hidden="true" aria-labelledby="form-h-1" style="display: none;">
+                        <h2>Endereço</h2>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>C.E.P *</label>
+                                    <input id="cep" name="cep" type="text" aria-invalid="false" aria-required="true" class="form-control required valid">
+                                </div>
+                                <div class="form-group">
+                                    <label>U.F *</label>
+                                    <input id="uf" aria-required="true" aria-invalid="false" name="uf" type="text" class="form-control required valid">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Cidade *</label>
+                                    <input id="cidade" aria-invalid="false" aria-required="true" name="cidade" type="text" class="form-control required valid">
+                                </div>
+                                <div class="form-group">
+                                    <label>Endereço</label>
+                                    <input id="endereco" aria-invalid="false" name="endereco" type="text" class="form-control valid">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Número</label>
+                                    <input id="numero" aria-invalid="false" name="numero" type="text" class="form-control valid">
+                                </div>
+                                <div class="form-group">
+                                    <label>Complemento</label>
+                                    <input id="complemento" aria-invalid="false" name="complemento" type="text" class="form-control valid">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                        <h1 tabindex="-1" class="title" id="form-h-2">Contato</h1>
+                        <fieldset class="body" id="form-p-2" role="tabpanel" aria-hidden="true" aria-labelledby="form-h-2" style="display: none;">
+                        <h2>Telefones</h2>
+                        <div class="row">
+                                <div class="form-group">
+                                    <label>Fixo *</label>
+                                    <input id="fonefixo" aria-invalid="false" aria-required="true" name="fonefixo" type="text" class="form-control required valid">
+                                </div>
+                                <div class="form-group">
+                                    <label>Celular *</label>
+                                    <input id="fonecel" aria-invalid="false" aria-required="true" name="fonecel" type="text" class="form-control required valid">
+                                </div>
+                                <div class="form-group">
+                                    <label>Outro</label>
+                                    <input id="outro" aria-invalid="false" name="outro" type="text" class="form-control valid">
+                                </div>
+                        </div>
+                    </fieldset>
+                        <h1 tabindex="-1" class="title" id="form-h-3">Concluir</h1>
+                        <fieldset class="body" id="form-p-3" role="tabpanel" aria-hidden="true" aria-labelledby="form-h-3" style="display: none;">
+                        <div class="text-center" style="margin-top: 120px">
+                            <h2>Todas as etapas foram concluidas !!</h2>
+                        </div>
+                    </fieldset>
+                    </div>
+                    <div class="actions clearfix">
+                        <ul role="menu" aria-label="Pagination">
+                            <li class="disabled" aria-disabled="true">
+                                <a role="menuitem" href="#previous">Anterior</a>
+                            </li>
+                            <li class="" aria-disabled="false" aria-hidden="false" style="display: block;">
+                                <a role="menuitem" href="#next">Próximo</a>
+                            </li>
+                            <li aria-hidden="false">
+                                <a role="menuitem" href="#finish">Finalizar</a>
+                            </li>
+                            <li>
+                                <a role="menuitem" href="#cancel">Cancelar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    <!-- JQuery validade -->
+    <script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/validate/jquery.validate.min.js'); ?>"></script>
+    <!-- Steps -->
+    <script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/staps/jquery.steps.min.js'); ?>"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="<?php echo $this->baseUrl('temas/Inspinia/js/inspinia.js'); ?>"></script>
+    <script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/pace/pace.min.js'); ?>"></script>
+
+<script>
+
+    $(document).ready(function(){
+        $("#wizard").steps();
+        $("#form").steps({
+            bodyTag: "fieldset",
+            onStepChanging: function (event, currentIndex, newIndex)
+            {
+                // Always allow going backward even if the current step contains invalid fields!
+                if (currentIndex > newIndex)
+                {
+                    return true;
+                }
+
+                // Forbid suppressing "Warning" step if the user is to young
+                if (newIndex === 3 && Number($("#age").val()) < 18)
+                {
+                    return false;
+                }
+
+                var form = $(this);
+
+                // Clean up if user went backward before
+                if (currentIndex < newIndex)
+                {
+                    // To remove error styles
+                    $(".body:eq(" + newIndex + ") label.error", form).remove();
+                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                }
+
+                // Disable validation on fields that are disabled or hidden.
+                form.validate().settings.ignore = ":disabled,:hidden";
+
+                // Start validation; Prevent going forward if false
+                return form.valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex)
+            {
+                // Suppress (skip) "Warning" step if the user is old enough.
+                if (currentIndex === 2 && Number($("#age").val()) >= 18)
+                {
+                    $(this).steps("next");
+                }
+
+                // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                if (currentIndex === 2 && priorIndex === 3)
+                {
+                    $(this).steps("previous");
+                }
+            },
+            onFinishing: function (event, currentIndex)
+            {
+                var form = $(this);
+
+                // Disable validation on fields that are disabled.
+                // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                form.validate().settings.ignore = ":disabled";
+
+                // Start validation; Prevent form submission if false
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex)
+            {
+                var form = $(this);
+
+                // Submit form input
+                form.submit();
+            }
+        }).validate({
+            errorPlacement: function (error, element)
+            {
+                element.before(error);
+            },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                }
+            }
+        });
+    });
+
+</script>
+
+</body>
+
+</html>
