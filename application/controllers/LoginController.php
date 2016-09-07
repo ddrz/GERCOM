@@ -6,6 +6,7 @@
  * Time: 18:50
  */
 
+
 class LoginController extends Zend_Controller_Action
 {
     public function loginAction()
