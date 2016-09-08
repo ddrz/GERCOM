@@ -1,0 +1,377 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema gercom
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `gercom` ;
+
+-- -----------------------------------------------------
+-- Schema gercom
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `gercom` DEFAULT CHARACTER SET utf8 ;
+USE `gercom` ;
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_acesso`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_acesso` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_acesso` (
+  `id_acesso` INT NOT NULL AUTO_INCREMENT,
+  `tx_rota` VARCHAR(75) NOT NULL,
+  `tx_descricao` VARCHAR(100) NOT NULL,
+  `tx_categoria` CHAR(10) NOT NULL,
+  PRIMARY KEY (`id_acesso`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_uf`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_uf` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_uf` (
+  `id_uf` INT NOT NULL AUTO_INCREMENT,
+  `nome` CHAR(2) NOT NULL,
+  PRIMARY KEY (`id_uf`))
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `nome_UNIQUE` ON `gercom`.`tb_uf` (`nome` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_cidade`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_cidade` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_cidade` (
+  `id_cidade` INT NOT NULL AUTO_INCREMENT,
+  `tx_nome` VARCHAR(75) NOT NULL,
+  `fk_uf` INT NOT NULL,
+  PRIMARY KEY (`id_cidade`),
+  CONSTRAINT `fk_tb_cidade_tb_uf1`
+    FOREIGN KEY (`fk_uf`)
+    REFERENCES `gercom`.`tb_uf` (`id_uf`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE INDEX `fk_tb_cidade_tb_uf1_idx` ON `gercom`.`tb_cidade` (`fk_uf` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_bairro`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_bairro` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_bairro` (
+  `id_bairro` INT NOT NULL AUTO_INCREMENT,
+  `tx_nome` VARCHAR(75) NOT NULL,
+  `fk_cidade` INT NOT NULL,
+  PRIMARY KEY (`id_bairro`),
+  CONSTRAINT `fk_tb_bairro_tb_cidade1`
+    FOREIGN KEY (`fk_cidade`)
+    REFERENCES `gercom`.`tb_cidade` (`id_cidade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE INDEX `fk_tb_bairro_tb_cidade1_idx` ON `gercom`.`tb_bairro` (`fk_cidade` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_historico`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_historico` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_historico` (
+  `id_historico` INT NOT NULL AUTO_INCREMENT,
+  `tx_descricao` TEXT NULL,
+  `tp_gerou_venda` TINYINT(1) NULL DEFAULT 0,
+  `dt_atendimento` TIMESTAMP NOT NULL,
+  PRIMARY KEY (`id_historico`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_perfil`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_perfil` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_perfil` (
+  `id_perfil` INT NOT NULL AUTO_INCREMENT,
+  `tx_nome` VARCHAR(45) NOT NULL,
+  `tx_descricao` VARCHAR(290) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_perfil`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_perfil_acesso`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_perfil_acesso` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_perfil_acesso` (
+  `id_perfil` INT NOT NULL,
+  `id_acesso` INT NOT NULL,
+  PRIMARY KEY (`id_perfil`, `id_acesso`),
+  CONSTRAINT `fk_tb_perfil_has_tb_acesso_tb_acesso1`
+    FOREIGN KEY (`id_acesso`)
+    REFERENCES `gercom`.`tb_acesso` (`id_acesso`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_perfil_has_tb_acesso_tb_perfil1`
+    FOREIGN KEY (`id_perfil`)
+    REFERENCES `gercom`.`tb_perfil` (`id_perfil`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE INDEX `fk_tb_perfil_has_tb_acesso_tb_acesso1_idx` ON `gercom`.`tb_perfil_acesso` (`id_acesso` ASC);
+
+CREATE INDEX `fk_tb_perfil_has_tb_acesso_tb_perfil1_idx` ON `gercom`.`tb_perfil_acesso` (`id_perfil` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_endereco`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_endereco` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_endereco` (
+  `id_endereco` INT NOT NULL AUTO_INCREMENT,
+  `tx_endereco` VARCHAR(175) NOT NULL,
+  `nu_numero` INT NOT NULL,
+  `tx_complemento` VARCHAR(175) NULL,
+  `fk_bairro` INT NOT NULL,
+  PRIMARY KEY (`id_endereco`),
+  CONSTRAINT `fk_tb_endereco_tb_bairro1`
+    FOREIGN KEY (`fk_bairro`)
+    REFERENCES `gercom`.`tb_bairro` (`id_bairro`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_tb_endereco_tb_bairro1_idx` ON `gercom`.`tb_endereco` (`fk_bairro` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_telefone`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_telefone` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_telefone` (
+  `id_telefone` INT NOT NULL AUTO_INCREMENT,
+  `tx_descricao` VARCHAR(45) NOT NULL,
+  `tx_operadora` CHAR(7) NULL,
+  `nu_fone` VARCHAR(15) NOT NULL,
+  `tp_sms` TINYINT(1) NULL DEFAULT 1,
+  `tp_receber_chamada` TINYINT(1) NULL DEFAULT 1,
+  PRIMARY KEY (`id_telefone`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_entidade`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_entidade` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_entidade` (
+  `id_entidade` INT NOT NULL AUTO_INCREMENT,
+  `tx_nome` VARCHAR(150) NOT NULL,
+  `tx_razao` VARCHAR(150) NULL,
+  `nu_cpf` VARCHAR(14) NULL,
+  `nu_cnpj` VARCHAR(18) NULL,
+  `tp_pessoa` CHAR(1) NULL COMMENT 'F pessoa fisica\nJ pessoa juridica',
+  `tx_email` VARCHAR(75) NOT NULL,
+  `tp_ativo` TINYINT(1) NOT NULL DEFAULT 1,
+  `nu_rg` VARCHAR(45) NULL,
+  `nu_ie` VARCHAR(45) NULL,
+  `tx_observacao` TEXT NULL,
+  `tp_entidade` CHAR(10) NOT NULL,
+  PRIMARY KEY (`id_entidade`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_endereco_entidade`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_endereco_entidade` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_endereco_entidade` (
+  `fk_endereco` INT NOT NULL,
+  `fk_entidade` INT NOT NULL,
+  PRIMARY KEY (`fk_endereco`, `fk_entidade`),
+  CONSTRAINT `fk_tb_endereco_has_tb_entidade_tb_endereco1`
+    FOREIGN KEY (`fk_endereco`)
+    REFERENCES `gercom`.`tb_endereco` (`id_endereco`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_endereco_has_tb_entidade_tb_entidade1`
+    FOREIGN KEY (`fk_entidade`)
+    REFERENCES `gercom`.`tb_entidade` (`id_entidade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_tb_endereco_has_tb_entidade_tb_entidade1_idx` ON `gercom`.`tb_endereco_entidade` (`fk_entidade` ASC);
+
+CREATE INDEX `fk_tb_endereco_has_tb_entidade_tb_endereco1_idx` ON `gercom`.`tb_endereco_entidade` (`fk_endereco` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_telefone_entidade`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_telefone_entidade` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_telefone_entidade` (
+  `fk_telefone` INT NOT NULL,
+  `fk_entidade` INT NOT NULL,
+  PRIMARY KEY (`fk_telefone`, `fk_entidade`),
+  CONSTRAINT `fk_tb_telefone_has_tb_entidade_tb_telefone1`
+    FOREIGN KEY (`fk_telefone`)
+    REFERENCES `gercom`.`tb_telefone` (`id_telefone`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_telefone_has_tb_entidade_tb_entidade1`
+    FOREIGN KEY (`fk_entidade`)
+    REFERENCES `gercom`.`tb_entidade` (`id_entidade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_tb_telefone_has_tb_entidade_tb_entidade1_idx` ON `gercom`.`tb_telefone_entidade` (`fk_entidade` ASC);
+
+CREATE INDEX `fk_tb_telefone_has_tb_entidade_tb_telefone1_idx` ON `gercom`.`tb_telefone_entidade` (`fk_telefone` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_entidade_historico`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_entidade_historico` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_entidade_historico` (
+  `fk_atendente` INT NOT NULL,
+  `fk_historico` INT NOT NULL,
+  `fk_cliente` INT NOT NULL,
+  PRIMARY KEY (`fk_atendente`, `fk_historico`, `fk_cliente`),
+  CONSTRAINT `fk_tb_entidade_has_tb_historico_tb_entidade1`
+    FOREIGN KEY (`fk_atendente`)
+    REFERENCES `gercom`.`tb_entidade` (`id_entidade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_entidade_has_tb_historico_tb_historico1`
+    FOREIGN KEY (`fk_historico`)
+    REFERENCES `gercom`.`tb_historico` (`id_historico`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_entidade_has_tb_historico_tb_entidade2`
+    FOREIGN KEY (`fk_cliente`)
+    REFERENCES `gercom`.`tb_entidade` (`id_entidade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_tb_entidade_has_tb_historico_tb_historico1_idx` ON `gercom`.`tb_entidade_historico` (`fk_historico` ASC);
+
+CREATE INDEX `fk_tb_entidade_has_tb_historico_tb_entidade1_idx` ON `gercom`.`tb_entidade_historico` (`fk_atendente` ASC);
+
+CREATE INDEX `fk_tb_entidade_has_tb_historico_tb_entidade2_idx` ON `gercom`.`tb_entidade_historico` (`fk_cliente` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_entidade_entidade`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_entidade_entidade` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_entidade_entidade` (
+  `fk_atendente` INT NOT NULL,
+  `fk_cliente` INT NOT NULL,
+  PRIMARY KEY (`fk_atendente`, `fk_cliente`),
+  CONSTRAINT `fk_tb_entidade_has_tb_entidade_tb_entidade1`
+    FOREIGN KEY (`fk_atendente`)
+    REFERENCES `gercom`.`tb_entidade` (`id_entidade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_entidade_has_tb_entidade_tb_entidade2`
+    FOREIGN KEY (`fk_cliente`)
+    REFERENCES `gercom`.`tb_entidade` (`id_entidade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_tb_entidade_has_tb_entidade_tb_entidade2_idx` ON `gercom`.`tb_entidade_entidade` (`fk_cliente` ASC);
+
+CREATE INDEX `fk_tb_entidade_has_tb_entidade_tb_entidade1_idx` ON `gercom`.`tb_entidade_entidade` (`fk_atendente` ASC);
+
+
+-- -----------------------------------------------------
+-- Table `gercom`.`tb_usuario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gercom`.`tb_usuario` ;
+
+CREATE TABLE IF NOT EXISTS `gercom`.`tb_usuario` (
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `tx_email` VARCHAR(45) NOT NULL,
+  `tx_senha` VARCHAR(45) NOT NULL,
+  `tp_ativo` TINYINT(1) NULL,
+  `fk_perfil` INT NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  CONSTRAINT `fk_tb_usuario_tb_perfil1`
+    FOREIGN KEY (`fk_perfil`)
+    REFERENCES `gercom`.`tb_perfil` (`id_perfil`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_tb_usuario_tb_perfil1_idx` ON `gercom`.`tb_usuario` (`fk_perfil` ASC);
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `gercom`.`tb_uf`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `gercom`;
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (11, 'RO');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (12, 'AC');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (13, 'AM');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (14, 'RR');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (15, 'PA');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (16, 'AP');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (17, 'TO');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (21, 'MA');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (22, 'PI');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (23, 'CE');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (24, 'RN');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (25, 'PB');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (26, 'PE');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (27, 'AL');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (28, 'SE');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (29, 'BA');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (31, 'MG');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (32, 'ES');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (33, 'RJ');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (35, 'SP');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (41, 'PR');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (42, 'SC');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (43, 'RS');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (50, 'MS');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (51, 'MT');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (52, 'GO');
+INSERT INTO `gercom`.`tb_uf` (`id_uf`, `nome`) VALUES (53, 'DF');
+
+COMMIT;
+
