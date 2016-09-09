@@ -14,20 +14,20 @@ class LoginController extends Zend_Controller_Action
             $this->_helper->layout->disableLayout();
     }
     
-    public function autenticarAction(){
+    public function autenticaAction(){
         
          $dados = $this->_getAllParams(); //resgatando o array de dados do formulario (<form>)
          $email = $dados['email'];//atributo colhido no input (campo) de name="email"
          $senha = $dados['senha'];//atributo colhido no input (campo) de name="senha"
  
-         $modelLogin = new Application_Model_Login(); //Ainda não descobri qual o model certo, pois não encontrei no banco de dados
-         $rowLogin = $modelLogin->fetchRow("tx_email = '$email' and ps_senha = '$senha'");//não foi encontrado o campo de senha no banco de dados
+         $modelUsuario = new Application_Model_Usuario(); 
+         $rowUsuario = $modelUsuario->fetchRow("tx_email = '$email' and tx_senha = '$senha'");
          
-         if ($rowLogin){
+         if ($rowUsuario){
          
-             $_SESSION['id_usuario'] = $rowLogin['id_usuario'];//setando na session o id_usuario
-             $_SESSION['nome'] = $rowLogin['tx_nome'];//setando na session o nome
-             $_SESSION['id_perfil'] = $rowLogin['id_perfil'];//setando na session o id_perfil
+             $_SESSION['id_usuario'] = $rowUsuario['id_usuario'];//setando na session o id_usuario
+             $_SESSION['email'] = $rowUsuario['tx_email'];//setando o usuario na session
+             $_SESSION['id_perfil'] = $rowUsuario['fk_perfil'];//setando na session o id_perfil
              
              $_SESSION['mensagem'] = 'Usuário logado com sucesso!';
 
