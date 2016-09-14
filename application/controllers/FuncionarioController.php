@@ -5,10 +5,10 @@
  * Date: 04/09/2016
  */
 
-class AtendenteController extends Zend_Controller_Action
+class FuncionarioController extends Zend_Controller_Action
 {
 
-    public function atendenteAction()
+    public function funcionarioAction()
     {
         // action body
     }

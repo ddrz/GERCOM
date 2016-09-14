@@ -1,0 +1,96 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: diego
+ * Date: 08/09/2016
+ */
+?>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contato</title>
+
+    <link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/datapicker/datepicker3.css'); ?>" rel="stylesheet">
+
+    <link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/clockpicker/clockpicker.css'); ?>" rel="stylesheet">
+
+    <link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/iCheck/custom.css'); ?>" rel="stylesheet">
+
+    <link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'); ?>" rel="stylesheet">
+
+    <!-- Clock picker -->
+    <script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/clockpicker/clockpicker.js'); ?>"></script>
+
+    <!-- Data picker -->
+    <script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/datapicker/bootstrap-datepicker.js'); ?>"></script>
+
+    <!-- iCheck -->
+    <script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/iCheck/icheck.min.js'); ?>"></script>
+
+    <!-- Input Mask-->
+    <script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/jasny/jasny-bootstrap.min.js'); ?>"></script>
+
+</head>
+
+<body>
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-12">
+                    <h2>Formulario</h2>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox-title">
+                            <h5>Dados <small>Identificação básica para atendimento</small></h5>
+                        </div>
+                        <div class="ibox-content">
+                            <form method="get" class="form-horizontal">
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-md-4">Razão:<input type="text" placeholder="Nome" class="form-control"></div>
+                                        <div class="col-md-4">Contato:<input type="text" placeholder="Telefone" class="form-control">
+                                            <input type="text" placeholder="E-mail" class="form-control">
+                                        </div>
+                                            <div class="col-md-2">Gerou Venda ?
+                                                    <div class="i-checks"><label> <input type="checkbox" value=""> <i></i> Sim</label></div>
+                                            </div>
+                                        <div class="col-md-2">Hora:
+                                            <div class="input-group clockpicker" data-autoclose="true">
+                                                <input type="text" class="form-control" value="" data-mask="99:99">
+                                                <span class="input-group-addon"><span class="fa fa-clock-o"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">Assunto/Conversa:<input type="text" placeholder="Observações" class="form-control"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <div align="center" class="col-sm-4 col-sm-offset-2">
+                        <button class="btn btn-primary" type="submit">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+            <script>
+                $(document).ready(function () {
+                    $('.i-checks').iCheck({
+                        checkboxClass: 'icheckbox_square-green',
+                        radioClass: 'iradio_square-green',
+                    });
+                });
+
+                $('.clockpicker').clockpicker();
+            </script>
+</body>
+
+

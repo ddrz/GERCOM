@@ -1,0 +1,214 @@
+
+<link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/iCheck/custom.css'); ?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/steps/jquery.steps.css'); ?>" rel="stylesheet">
+
+<!-- Steps -->
+<script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/staps/jquery.steps.min.js'); ?>"></script>
+
+<!-- Jquery Validate -->
+<script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/validate/jquery.validate.min.js'); ?>"></script>
+
+<!-- Input Mask-->
+<script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/jasny/jasny-bootstrap.min.js'); ?>"></script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-title">
+            <h5>Cadastro</h5>
+            </div>
+            <div class="ibox-content">
+                <h2>
+                    Formulario
+                </h2>
+                <p>
+                Este formulario irá cadastrar um novo funcionário.
+                </p>
+
+                <form id="form" action="#" class="wizard-big">
+                    <h1>Dados</h1>
+                    <fieldset>
+                        <h2><small>Digite os seus dados pessoais</small></h2>
+                        <div class="row">
+                            <div align="right">
+                                <span>* Campos Obrigatórios</span>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="form-group col-md-7">
+                                    <label>Nome Completo *</label>
+                                    <input id="nome" name="nome" type="text" class="form-control required">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>C.P.F *</label>
+                                    <input id="cpf" name="cpf" type="text" class="form-control required">
+                                </div>
+                                <div class="form-group col-md-7">
+                                    <label>E-Mail *</label>
+                                    <input id="email" name="email" type="email" class="form-control required email">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>R.G *</label>
+                                    <input id="rg" name="rg" type="text" class="form-control required">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="text-center">
+                                    <div style="margin-top: 20px">
+                                        <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <h1>Localização</h1>
+                    <fieldset>
+                        <h2><small>Endereço</small></h2>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group col-md-4">
+                                    <label>C.E.P</label>
+                                    <input id="cep" name="cep" type="text" class="form-control ">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>U.F</label>
+                                    <input id="uf" name="uf" type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-9">
+                                    <label>Cidade</label>
+                                    <input id="cidade" name="cidade" type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-9">
+                                    <label>Bairro</label>
+                                    <input id="bairro" name="bairro" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group col-md-9">
+                                    <label>Endereço</label>
+                                    <input id="endereco" name="endereco" type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Número</label>
+                                    <input id="numero" name="numero" type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-9">
+                                    <label>Complemento</label>
+                                    <input id="complemento" name="complemento" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h1>Contato</h1>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>Fixo</label>
+                                <input id="fonefixo" name="fonefixo" type="text" class="form-control" data-mask="(99) 9999-9999" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Celular</label>
+                                <input id="fonecel" name="fonecel" type="text" class="form-control" data-mask="(99) 9-9999-9999" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Outro</label>
+                                <input id="outro" name="outro" type="text" class="form-control" data-mask="(99)99999-9999">
+                            </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h1>Finalizar</h1>
+                    <fieldset>
+                        <h2><small>Fomulario preenchido com sucesso !!</small></h2>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+        $("#wizard").steps();
+        $("#form").steps({
+            bodyTag: "fieldset",
+            onStepChanging: function (event, currentIndex, newIndex)
+            {
+                // Always allow going backward even if the current step contains invalid fields!
+                if (currentIndex > newIndex)
+                {
+                    return true;
+                }
+
+                // Forbid suppressing "Warning" step if the user is to young
+                if (newIndex === 3 && Number($("#age").val()) < 18)
+                {
+                    return false;
+                }
+
+                var form = $(this);
+
+                // Clean up if user went backward before
+                if (currentIndex < newIndex)
+                {
+                    // To remove error styles
+                    $(".body:eq(" + newIndex + ") label.error", form).remove();
+                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                }
+
+                // Disable validation on fields that are disabled or hidden.
+                form.validate().settings.ignore = ":disabled,:hidden";
+
+                // Start validation; Prevent going forward if false
+                return form.valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex)
+            {
+                // Suppress (skip) "Warning" step if the user is old enough.
+                if (currentIndex === 2 && Number($("#age").val()) >= 18)
+                {
+                    $(this).steps("Próximo");
+                }
+
+                // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                if (currentIndex === 2 && priorIndex === 3)
+                {
+                    $(this).steps("Anterior");
+                }
+            },
+            onFinishing: function (event, currentIndex)
+            {
+                var form = $(this);
+
+                // Disable validation on fields that are disabled.
+                // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                form.validate().settings.ignore = ":disabled";
+
+                // Start validation; Prevent form submission if false
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex)
+            {
+                var form = $(this);
+
+                // Submit form input
+                form.submit();
+            }
+        }).validate({
+            errorPlacement: function (error, element)
+            {
+                element.before(error);
+            },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                }
+            }
+        });
+    });
+</script>

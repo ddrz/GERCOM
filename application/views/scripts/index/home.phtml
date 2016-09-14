@@ -1,53 +1,48 @@
-<head>
-<h1 align="center"><strong>Pagina de Status</strong></h1>
 
-<h3 align="center">Modulos</h3>
-</head>
-<body>
-<fieldset>
-<div class="col-sm-5">
+        <h1 align="center"><strong>Pagina de Status</strong></h1>
+        <h3 align="center">Modulos</h3>
+    
+        <fieldset>
+            <div class="col-sm-5">
+                <p>
+                    <a class="btn btn-success" href="<?php echo $this->baseUrl('perfil/perfil') ?>">Perfil</a>
+                </p>
 
-    <p>
-        <a class="btn btn-success" href="<?php echo $this->baseUrl('') ?>">Perfil</a>
-    </p>
+                <p>
+                    <a class="btn btn-danger" href="<?php echo $this->baseUrl('login/login') ?>">Login</a>
+                </p>
 
-    <p>
-        <a class="btn btn-danger" href="<?php echo $this->baseUrl('') ?>">Login</a>
-    </p>
+                <p>
+                    <a class="btn btn-warning" href="<?php echo $this->baseUrl('funcionario/funcionario') ?>">Atendente</a>
+                </p>
+            </div>
+                <div class="col-sm-4">
 
-    <p>
-        <a class="btn btn-warning" href="<?php echo $this->baseUrl('') ?>">Atendente</a>
-    </p>
-</div>
-<div class="col-sm-4">
+                    <p>
+                        <a class="btn btn-primary" href="<?php echo $this->baseUrl('') ?>">Relatorios</a>
+                    </p>
 
-    <p>
-        <a class="btn btn-primary" href="<?php echo $this->baseUrl('') ?>">Relatorios</a>
-    </p>
+                    <p>
+                        <a class="btn btn-default" href="<?php echo $this->baseUrl('') ?>">Calendario</a>
+                    </p>
 
-    <p>
-        <a class="btn btn-default" href="<?php echo $this->baseUrl('') ?>">Calendario</a>
-    </p>
+                    <p>
+                        <a class="btn btn-default" href="<?php echo $this->baseUrl('contato/contato') ?>">Contato</a>
+                    </p>
+                </div>
 
-    <p>
-        <a class="btn btn-default" href="<?php echo $this->baseUrl('') ?>">Contato</a>
-    </p>
-</div>
-
-<div class="col-sm-1">
-   <div style="width: 90px; height: 30px; border: 20px solid blue;"></div>
-    <div style="width: 90px; height: 30px; border: 20px solid red;"></div>
-    <div style="width: 90px; height: 30px; border: 20px solid lightseagreen;"></div>
-    <div style="width: 90px; height: 30px; border: 20px solid orange;"></div>
-    <div style="width: 90px; height: 30px; border: 20px solid whitesmoke;"></div>
-</div>
-    <div class="col-sm-1">
-        <div style="height: 40px"><span><strong>Aprovado</strong></span></div>
-        <div style="height: 40px"><span><strong>Reprovado</strong></span></div>
-        <div style="height: 40px"><span><strong>Desenvolvendo</strong></span></div>
-        <div style="height: 40px"><span><strong>Em testes</strong></span></div>
-        <div style="height: 40px"><span><strong>Outro</strong></span></div>
-    </div>
-</fieldset>
-
-</body>
+        <div class="col-sm-1">
+            <div style="width: 90px; height: 30px; border: 20px solid blue;"></div>
+            <div style="width: 90px; height: 30px; border: 20px solid red;"></div>
+            <div style="width: 90px; height: 30px; border: 20px solid lightseagreen;"></div>
+            <div style="width: 90px; height: 30px; border: 20px solid orange;"></div>
+            <div style="width: 90px; height: 30px; border: 20px solid whitesmoke;"></div>
+        </div>
+        <div class="col-sm-1">
+            <div style="height: 40px"><span><strong>Aprovado</strong></span></div>
+            <div style="height: 40px"><span><strong>Reprovado</strong></span></div>
+            <div style="height: 40px"><span><strong>Desenvolvendo</strong></span></div>
+            <div style="height: 40px"><span><strong>Em testes</strong></span></div>
+            <div style="height: 40px"><span><strong>Outro</strong></span></div>
+        </div>
+    </fieldset>
