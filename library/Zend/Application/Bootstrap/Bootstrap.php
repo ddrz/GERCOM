@@ -82,11 +82,11 @@ class Zend_Application_Bootstrap_Bootstrap
     /**
      * Run the application
      *
-     * Checks to see that we have a default controller directory. If not, an
+     * Checks to see that we have a default controllers directory. If not, an
      * exception is thrown.
      *
      * If so, it registers the bootstrap with the 'bootstrap' parameter of
-     * the front controller, and dispatches the front controller.
+     * the front controllers, and dispatches the front controllers.
      *
      * @return mixed
      * @throws Zend_Application_Bootstrap_Exception
@@ -97,7 +97,7 @@ class Zend_Application_Bootstrap_Bootstrap
         $default = $front->getDefaultModule();
         if (null === $front->getControllerDirectory($default)) {
             throw new Zend_Application_Bootstrap_Exception(
-                'No default controller directory registered with front controller'
+                'No default controllers directory registered with front controllers'
             );
         }
 

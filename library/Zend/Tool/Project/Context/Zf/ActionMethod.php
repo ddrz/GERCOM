@@ -89,7 +89,7 @@ class Zend_Tool_Project_Context_Zf_ActionMethod implements Zend_Tool_Project_Con
          *
         if ($this->_controllerPath != '' && self::hasActionMethod($this->_controllerPath, $this->_actionName)) {
             require_once 'Zend/Tool/Project/Context/Exception.php';
-            throw new Zend_Tool_Project_Context_Exception('An action named ' . $this->_actionName . 'Action already exists in this controller');
+            throw new Zend_Tool_Project_Context_Exception('An action named ' . $this->_actionName . 'Action already exists in this controllers');
         }
         */
 
@@ -162,7 +162,7 @@ class Zend_Tool_Project_Context_Zf_ActionMethod implements Zend_Tool_Project_Con
         if (self::createActionMethod($this->_controllerPath, $this->_actionName) === false) {
             require_once 'Zend/Tool/Project/Context/Exception.php';
             throw new Zend_Tool_Project_Context_Exception(
-                'Could not create action within controller ' . $this->_controllerPath
+                'Could not create action within controllers ' . $this->_controllerPath
                 . ' with action name ' . $this->_actionName
                 );
         }

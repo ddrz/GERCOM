@@ -39,8 +39,8 @@ require_once 'Zend/Controller/Response/Abstract.php';
 interface Zend_Controller_Dispatcher_Interface
 {
     /**
-     * Formats a string into a controller name.  This is used to take a raw
-     * controller name, such as one that would be packaged inside a request
+     * Formats a string into a controllers name.  This is used to take a raw
+     * controllers name, such as one that would be packaged inside a request
      * object, and reformat it to a proper class name that a class extending
      * Zend_Controller_Action would use.
      *
@@ -97,7 +97,7 @@ interface Zend_Controller_Dispatcher_Interface
     public function setParams(array $params);
 
     /**
-     * Retrieve a single parameter from the controller parameter stack
+     * Retrieve a single parameter from the controllers parameter stack
      *
      * @param string $name
      * @return mixed
@@ -112,7 +112,7 @@ interface Zend_Controller_Dispatcher_Interface
     public function getParams();
 
     /**
-     * Clear the controller parameter stack
+     * Clear the controllers parameter stack
      *
      * By default, clears all parameters. If a parameter name is given, clears
      * only that parameter; if an array of parameter names is provided, clears
@@ -139,7 +139,7 @@ interface Zend_Controller_Dispatcher_Interface
     public function getResponse();
 
     /**
-     * Add a controller directory to the controller directory stack
+     * Add a controllers directory to the controllers directory stack
      *
      * @param string $path
      * @param string $args
@@ -148,7 +148,7 @@ interface Zend_Controller_Dispatcher_Interface
     public function addControllerDirectory($path, $args = null);
 
     /**
-     * Set the directory where controller files are stored
+     * Set the directory where controllers files are stored
      *
      * Specify a string or an array; if an array is specified, all paths will be
      * added.
@@ -159,14 +159,14 @@ interface Zend_Controller_Dispatcher_Interface
     public function setControllerDirectory($path);
 
     /**
-     * Return the currently set directory(ies) for controller file lookup
+     * Return the currently set directory(ies) for controllers file lookup
      *
      * @return array
      */
     public function getControllerDirectory();
 
     /**
-     * Dispatches a request object to a controller/action.  If the action
+     * Dispatches a request object to a controllers/action.  If the action
      * requests a forward to another action, a new request will be returned.
      *
      * @param  Zend_Controller_Request_Abstract $request
@@ -191,7 +191,7 @@ interface Zend_Controller_Dispatcher_Interface
     public function getDefaultModule();
 
     /**
-     * Retrieve the default controller name
+     * Retrieve the default controllers name
      *
      * @return string
      */

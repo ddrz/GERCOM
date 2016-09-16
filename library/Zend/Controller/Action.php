@@ -61,7 +61,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
     protected $_invokeArgs = array();
 
     /**
-     * Front controller instance
+     * Front controllers instance
      * @var Zend_Controller_Front
      */
     protected $_frontController;
@@ -102,7 +102,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * Class constructor
      *
      * The request and response objects should be registered with the
-     * controller, as should be any additional optional arguments; these will be
+     * controllers, as should be any additional optional arguments; these will be
      * available via {@link getRequest()}, {@link getResponse()}, and
      * {@link getInvokeArgs()}, respectively.
      *
@@ -117,7 +117,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * Finally, {@link init()} is called as the final action of
      * instantiation, and may be safely overridden to perform initialization
      * tasks; as a general rule, override {@link init()} instead of the
-     * constructor to customize an action controller's instantiation.
+     * constructor to customize an action controllers's instantiation.
      *
      * @param Zend_Controller_Request_Abstract $request
      * @param Zend_Controller_Response_Abstract $response
@@ -151,7 +151,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      *
      * If {@link $view} is not otherwise set, instantiates a new Zend_View
      * object, using the 'views' subdirectory at the same level as the
-     * controller directory for the current module as the base directory.
+     * controllers directory for the current module as the base directory.
      * It uses this to set the following:
      * - script path = views/scripts/
      * - helper path = views/helpers/
@@ -193,8 +193,8 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * Render a view
      *
      * Renders a view. By default, views are found in the view script path as
-     * <controller>/<action>.phtml. You may change the script suffix by
-     * resetting {@link $viewSuffix}. You may omit the controller directory
+     * <controllers>/<action>.phtml. You may change the script suffix by
+     * resetting {@link $viewSuffix}. You may omit the controllers directory
      * prefix by specifying boolean true for $noController.
      *
      * By default, the rendered contents are appended to the response. You may
@@ -203,7 +203,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * @see Zend_Controller_Response_Abstract::appendBody()
      * @param  string|null $action Defaults to action registered in request object
      * @param  string|null $name Response object named path segment to use; defaults to null
-     * @param  bool $noController  Defaults to false; i.e. use controller name as subdir in which to search for view script
+     * @param  bool $noController  Defaults to false; i.e. use controllers name as subdir in which to search for view script
      * @return void
      */
     public function render($action = null, $name = null, $noController = false)
@@ -256,7 +256,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * Used by render() to determine the path to the view script.
      *
      * @param  string $action Defaults to action registered in request object
-     * @param  bool $noController  Defaults to false; i.e. use controller name as subdir in which to search for view script
+     * @param  bool $noController  Defaults to false; i.e. use controllers name as subdir in which to search for view script
      * @return string
      * @throws Zend_Controller_Exception with bad $action
      */
@@ -401,7 +401,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
     }
 
     /**
-     * Set the front controller instance
+     * Set the front controllers instance
      *
      * @param Zend_Controller_Front $front
      * @return Zend_Controller_Action
@@ -432,7 +432,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
 
         // Throw exception in all other cases
         require_once 'Zend/Controller/Exception.php';
-        throw new Zend_Controller_Exception('Front controller class has not been loaded');
+        throw new Zend_Controller_Exception('Front controllers class has not been loaded');
     }
 
     /**
@@ -521,7 +521,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
             $this->postDispatch();
         }
 
-        // whats actually important here is that this action controller is
+        // whats actually important here is that this action controllers is
         // shutting down, regardless of dispatching; notify the helpers of this
         // state
         $this->_helper->notifyPostDispatch();
@@ -535,7 +535,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * request.
      *
      * Returns a Zend_Controller_Response_Abstract object, instantiating one
-     * prior to execution if none exists in the controller.
+     * prior to execution if none exists in the controllers.
      *
      * {@link preDispatch()} is called prior to the action,
      * {@link postDispatch()} is called following it.
@@ -687,23 +687,23 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
 
 
     /**
-     * Forward to another controller/action.
+     * Forward to another controllers/action.
      *
      * It is important to supply the unformatted names, i.e. "article"
      * rather than "ArticleController".  The dispatcher will do the
      * appropriate formatting when the request is received.
      *
      * If only an action name is provided, forwards to that action in this
-     * controller.
+     * controllers.
      *
-     * If an action and controller are specified, forwards to that action and
-     * controller in this module.
+     * If an action and controllers are specified, forwards to that action and
+     * controllers in this module.
      *
-     * Specifying an action, controller, and module is the most specific way to
+     * Specifying an action, controllers, and module is the most specific way to
      * forward.
      *
      * A fourth argument, $params, will be used to set the request parameters.
-     * If either the controller or module are unnecessary for forwarding,
+     * If either the controllers or module are unnecessary for forwarding,
      * simply pass null values for them before specifying the parameters.
      *
      * @param string $action
@@ -720,23 +720,23 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
     }
 
     /**
-     * Forward to another controller/action.
+     * Forward to another controllers/action.
      *
      * It is important to supply the unformatted names, i.e. "article"
      * rather than "ArticleController".  The dispatcher will do the
      * appropriate formatting when the request is received.
      *
      * If only an action name is provided, forwards to that action in this
-     * controller.
+     * controllers.
      *
-     * If an action and controller are specified, forwards to that action and
-     * controller in this module.
+     * If an action and controllers are specified, forwards to that action and
+     * controllers in this module.
      *
-     * Specifying an action, controller, and module is the most specific way to
+     * Specifying an action, controllers, and module is the most specific way to
      * forward.
      *
      * A fourth argument, $params, will be used to set the request parameters.
-     * If either the controller or module are unnecessary for forwarding,
+     * If either the controllers or module are unnecessary for forwarding,
      * simply pass null values for them before specifying the parameters.
      *
      * @param string $action
@@ -756,7 +756,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
         if (null !== $controller) {
             $request->setControllerName($controller);
 
-            // Module should only be reset if controller has been specified
+            // Module should only be reset if controllers has been specified
             if (null !== $module) {
                 $request->setModuleName($module);
             }

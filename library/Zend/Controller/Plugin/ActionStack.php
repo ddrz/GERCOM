@@ -53,7 +53,7 @@ class Zend_Controller_Plugin_ActionStack extends Zend_Controller_Plugin_Abstract
      */
     protected $_validKeys = array(
         'module',
-        'controller',
+        'controllers',
         'action',
         'params'
     );

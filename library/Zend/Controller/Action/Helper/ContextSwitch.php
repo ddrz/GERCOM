@@ -155,7 +155,7 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
     }
 
     /**
-     * Initialize at start of action controller
+     * Initialize at start of action controllers
      *
      * Reset the view script suffix to the original state, or store the
      * original state.
@@ -253,7 +253,7 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
             $format  = null;
         }
 
-        // Check if context allowed by action controller
+        // Check if context allowed by action controllers
         if (!$this->hasActionContext($action, $context)) {
             return;
         }
@@ -1168,7 +1168,7 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
     }
 
     /**
-     * Set a context as available for a given controller action
+     * Set a context as available for a given controllers action
      *
      * @param  string       $action
      * @param  string|array $context
@@ -1227,7 +1227,7 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
     }
 
     /**
-     * Does a particular controller action have the given context(s)?
+     * Does a particular controllers action have the given context(s)?
      *
      * @param  string       $action
      * @param  string|array $context
@@ -1255,7 +1255,7 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
              * @see Zend_Controller_Action_Exception
              */
             require_once 'Zend/Controller/Action/Exception.php';
-            throw new Zend_Controller_Action_Exception("Invalid contexts found for controller");
+            throw new Zend_Controller_Action_Exception("Invalid contexts found for controllers");
         }
 
         if (!isset($allContexts[$action])) {
@@ -1293,7 +1293,7 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
     }
 
     /**
-     * Get contexts for a given action or all actions in the controller
+     * Get contexts for a given action or all actions in the controllers
      *
      * @param  string $action
      * @return array
@@ -1323,7 +1323,7 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
     }
 
     /**
-     * Remove one or more contexts for a given controller action
+     * Remove one or more contexts for a given controllers action
      *
      * @param  string       $action
      * @param  string|array $context
@@ -1350,7 +1350,7 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
     }
 
     /**
-     * Clear all contexts for a given controller action or all actions
+     * Clear all contexts for a given controllers action or all actions
      *
      * @param  string $action
      * @return Zend_Controller_Action_Helper_ContextSwitch Provides a fluent interface

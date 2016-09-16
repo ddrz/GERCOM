@@ -42,7 +42,7 @@ class Zend_Controller_Router_Route_Regex extends Zend_Controller_Router_Route_Ab
     protected $_regex = null;
 
     /**
-     * Default values for the route (ie. module, controller, action, params)
+     * Default values for the route (ie. module, controllers, action, params)
      *
      * @var array
      */

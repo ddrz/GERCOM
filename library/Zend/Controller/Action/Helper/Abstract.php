@@ -59,7 +59,7 @@ abstract class Zend_Controller_Action_Helper_Abstract
     }
 
     /**
-     * Retrieve current action controller
+     * Retrieve current action controllers
      *
      * @return Zend_Controller_Action
      */
@@ -69,7 +69,7 @@ abstract class Zend_Controller_Action_Helper_Abstract
     }
 
     /**
-     * Retrieve front controller instance
+     * Retrieve front controllers instance
      *
      * @return Zend_Controller_Front
      */
@@ -79,7 +79,7 @@ abstract class Zend_Controller_Action_Helper_Abstract
     }
 
     /**
-     * Hook into action controller initialization
+     * Hook into action controllers initialization
      *
      * @return void
      */
@@ -88,7 +88,7 @@ abstract class Zend_Controller_Action_Helper_Abstract
     }
 
     /**
-     * Hook into action controller preDispatch() workflow
+     * Hook into action controllers preDispatch() workflow
      *
      * @return void
      */
@@ -97,7 +97,7 @@ abstract class Zend_Controller_Action_Helper_Abstract
     }
 
     /**
-     * Hook into action controller postDispatch() workflow
+     * Hook into action controllers postDispatch() workflow
      *
      * @return void
      */

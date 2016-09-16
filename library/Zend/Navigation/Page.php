@@ -189,7 +189,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
      *
      * If 'type' is not given, the type of page to construct will be determined
      * by the following rules:
-     * - If $options contains either of the keys 'action', 'controller',
+     * - If $options contains either of the keys 'action', 'controllers',
      *   'module', or 'route', a Zend_Navigation_Page_Mvc page will be created.
      * - If $options contains the key 'uri', a Zend_Navigation_Page_Uri page
      *   will be created.
@@ -254,7 +254,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
         }
 
         $hasUri = isset($options['uri']);
-        $hasMvc = isset($options['action']) || isset($options['controller']) ||
+        $hasMvc = isset($options['action']) || isset($options['controllers']) ||
                   isset($options['module']) || isset($options['route']) ||
                   isset($options['params']);
 

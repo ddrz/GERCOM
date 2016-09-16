@@ -100,7 +100,7 @@ class Zend_Controller_Action_Helper_Url extends Zend_Controller_Action_Helper_Ab
     }
 
     /**
-     * Perform helper when called as $this->_helper->url() from an action controller
+     * Perform helper when called as $this->_helper->url() from an action controllers
      *
      * Proxies to {@link simple()}
      *

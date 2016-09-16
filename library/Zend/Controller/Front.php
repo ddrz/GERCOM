@@ -120,7 +120,7 @@ class Zend_Controller_Front
     /**
      * Constructor
      *
-     * Instantiate using {@link getInstance()}; front controller is a singleton
+     * Instantiate using {@link getInstance()}; front controllers is a singleton
      * object.
      *
      * Instantiates the plugin broker.
@@ -198,10 +198,10 @@ class Zend_Controller_Front
      * Convenience feature, calls setControllerDirectory()->setRouter()->dispatch()
      *
      * In PHP 5.1.x, a call to a static method never populates $this -- so run()
-     * may actually be called after setting up your front controller.
+     * may actually be called after setting up your front controllers.
      *
      * @param string|array $controllerDirectory Path to Zend_Controller_Action
-     * controller classes or array of such paths
+     * controllers classes or array of such paths
      * @return void
      * @throws Zend_Controller_Exception if called from an object instance
      */
@@ -213,7 +213,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Add a controller directory to the controller directory stack
+     * Add a controllers directory to the controllers directory stack
      *
      * If $args is presented and is a string, uses it for the array key mapping
      * to the directory specified.
@@ -230,12 +230,12 @@ class Zend_Controller_Front
     }
 
     /**
-     * Set controller directory
+     * Set controllers directory
      *
-     * Stores controller directory(ies) in dispatcher. May be an array of
+     * Stores controllers directory(ies) in dispatcher. May be an array of
      * directories or a string containing a single directory.
      *
-     * @param string|array $directory Path to Zend_Controller_Action controller
+     * @param string|array $directory Path to Zend_Controller_Action controllers
      * classes or array of such paths
      * @param  string $module Optional module name to use with string $directory
      * @return Zend_Controller_Front
@@ -247,12 +247,12 @@ class Zend_Controller_Front
     }
 
     /**
-     * Retrieve controller directory
+     * Retrieve controllers directory
      *
      * Retrieves:
-     * - Array of all controller directories if no $name passed
-     * - String path if $name passed and exists as a key in controller directory array
-     * - null if $name passed but does not exist in controller directory keys
+     * - Array of all controllers directories if no $name passed
+     * - String path if $name passed and exists as a key in controllers directory array
+     * - null if $name passed but does not exist in controllers directory keys
      *
      * @param  string $name Default null
      * @return array|string|null
@@ -263,7 +263,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Remove a controller directory by module name
+     * Remove a controllers directory by module name
      *
      * @param  string $module
      * @return bool
@@ -278,7 +278,7 @@ class Zend_Controller_Front
      *
      * Iterates through the directory, adding any subdirectories as modules;
      * the subdirectory within each module named after {@link $_moduleControllerDirectoryName}
-     * will be used as the controller directory path.
+     * will be used as the controllers directory path.
      *
      * @param  string $path
      * @return Zend_Controller_Front
@@ -361,7 +361,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Set the default controller (unformatted string)
+     * Set the default controllers (unformatted string)
      *
      * @param string $controller
      * @return Zend_Controller_Front
@@ -374,7 +374,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Retrieve the default controller (unformatted string)
+     * Retrieve the default controllers (unformatted string)
      *
      * @return string
      */
@@ -473,7 +473,7 @@ class Zend_Controller_Front
      * Set router class/object
      *
      * Set the router object.  The router is responsible for mapping
-     * the request to a controller and action.
+     * the request to a controllers and action.
      *
      * If a class name is provided, instantiates router with any parameters
      * registered via {@link setParam()} or {@link setParams()}.
@@ -573,8 +573,8 @@ class Zend_Controller_Front
 
     /**
      * Set the dispatcher object.  The dispatcher is responsible for
-     * taking a Zend_Controller_Dispatcher_Token object, instantiating the controller, and
-     * call the action method of the controller.
+     * taking a Zend_Controller_Dispatcher_Token object, instantiating the controllers, and
+     * call the action method of the controllers.
      *
      * @param Zend_Controller_Dispatcher_Interface $dispatcher
      * @return Zend_Controller_Front
@@ -644,7 +644,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Add or modify a parameter to use when instantiating an action controller
+     * Add or modify a parameter to use when instantiating an action controllers
      *
      * @param string $name
      * @param mixed $value
@@ -658,7 +658,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Set parameters to pass to action controller constructors
+     * Set parameters to pass to action controllers constructors
      *
      * @param array $params
      * @return Zend_Controller_Front
@@ -670,7 +670,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Retrieve a single parameter from the controller parameter stack
+     * Retrieve a single parameter from the controllers parameter stack
      *
      * @param string $name
      * @return mixed
@@ -685,7 +685,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Retrieve action controller instantiation parameters
+     * Retrieve action controllers instantiation parameters
      *
      * @return array
      */
@@ -695,7 +695,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Clear the controller parameter stack
+     * Clear the controllers parameter stack
      *
      * By default, clears all parameters. If a parameter name is given, clears
      * only that parameter; if an array of parameter names is provided, clears
@@ -826,7 +826,7 @@ class Zend_Controller_Front
     }
 
     /**
-     * Dispatch an HTTP request to a controller/action.
+     * Dispatch an HTTP request to a controllers/action.
      *
      * @param Zend_Controller_Request_Abstract|null $request
      * @param Zend_Controller_Response_Abstract|null $response
@@ -899,7 +899,7 @@ class Zend_Controller_Front
         // Begin dispatch
         try {
             /**
-             * Route request to controller/action, if a router is provided
+             * Route request to controllers/action, if a router is provided
              */
 
             /**
@@ -928,7 +928,7 @@ class Zend_Controller_Front
             $this->_plugins->dispatchLoopStartup($this->_request);
 
             /**
-             *  Attempt to dispatch the controller/action. If the $this->_request
+             *  Attempt to dispatch the controllers/action. If the $this->_request
              *  indicates that it needs to be dispatched, move to the next
              *  action in the request.
              */

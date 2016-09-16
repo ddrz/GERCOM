@@ -102,7 +102,7 @@ class Zend_Controller_Action_Helper_FlashMessenger extends Zend_Controller_Actio
 
     /**
      * setNamespace() - change the namespace messages are added to, useful for
-     * per action controller messaging between requests
+     * per action controllers messaging between requests
      *
      * @param  string $namespace
      * @return Zend_Controller_Action_Helper_FlashMessenger Provides a fluent interface

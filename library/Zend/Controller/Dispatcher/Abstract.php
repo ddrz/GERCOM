@@ -39,7 +39,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     protected $_defaultAction = 'index';
 
     /**
-     * Default controller
+     * Default controllers
      * @var string
      */
     protected $_defaultController = 'index';
@@ -92,8 +92,8 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Formats a string into a controller name.  This is used to take a raw
-     * controller name, such as one stored inside a Zend_Controller_Request_Abstract
+     * Formats a string into a controllers name.  This is used to take a raw
+     * controllers name, such as one stored inside a Zend_Controller_Request_Abstract
      * object, and reformat it to a proper class name that a class extending
      * Zend_Controller_Action would use.
      *
@@ -157,7 +157,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
 
     /**
      * Retrieve the word delimiter character(s) used in
-     * controller or action names
+     * controllers or action names
      *
      * @return array
      */
@@ -185,7 +185,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
 
     /**
      * Retrieve the path delimiter character(s) used in
-     * controller names
+     * controllers names
      *
      * @return array
      */
@@ -246,7 +246,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Retrieve front controller instance
+     * Retrieve front controllers instance
      *
      * @return Zend_Controller_Front
      */
@@ -261,7 +261,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Set front controller instance
+     * Set front controllers instance
      *
      * @param Zend_Controller_Front $controller
      * @return Zend_Controller_Dispatcher_Abstract
@@ -273,7 +273,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Add or modify a parameter to use when instantiating an action controller
+     * Add or modify a parameter to use when instantiating an action controllers
      *
      * @param string $name
      * @param mixed $value
@@ -287,7 +287,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Set parameters to pass to action controller constructors
+     * Set parameters to pass to action controllers constructors
      *
      * @param array $params
      * @return Zend_Controller_Dispatcher_Abstract
@@ -299,7 +299,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Retrieve a single parameter from the controller parameter stack
+     * Retrieve a single parameter from the controllers parameter stack
      *
      * @param string $name
      * @return mixed
@@ -314,7 +314,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Retrieve action controller instantiation parameters
+     * Retrieve action controllers instantiation parameters
      *
      * @return array
      */
@@ -324,7 +324,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Clear the controller parameter stack
+     * Clear the controllers parameter stack
      *
      * By default, clears all parameters. If a parameter name is given, clears
      * only that parameter; if an array of parameter names is provided, clears
@@ -373,7 +373,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Set the default controller (minus any formatting)
+     * Set the default controllers (minus any formatting)
      *
      * @param string $controller
      * @return Zend_Controller_Dispatcher_Abstract
@@ -385,7 +385,7 @@ abstract class Zend_Controller_Dispatcher_Abstract implements Zend_Controller_Di
     }
 
     /**
-     * Retrieve the default controller name (minus formatting)
+     * Retrieve the default controllers name (minus formatting)
      *
      * @return string
      */

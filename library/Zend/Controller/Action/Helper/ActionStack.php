@@ -121,7 +121,7 @@ class Zend_Controller_Action_Helper_ActionStack extends Zend_Controller_Action_H
     }
 
     /**
-     * Perform helper when called as $this->_helper->actionStack() from an action controller
+     * Perform helper when called as $this->_helper->actionStack() from an action controllers
      *
      * Proxies to {@link simple()}
      *

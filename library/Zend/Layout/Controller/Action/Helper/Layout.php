@@ -84,7 +84,7 @@ class Zend_Layout_Controller_Action_Helper_Layout extends Zend_Controller_Action
     }
 
     /**
-     * Get front controller instance
+     * Get front controllers instance
      *
      * @return Zend_Controller_Front
      */

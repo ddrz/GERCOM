@@ -47,12 +47,12 @@ class Zend_Tool_Project_Provider_View extends Zend_Tool_Project_Provider_Abstrac
     {
         if (!is_string($actionName)) {
             require_once 'Zend/Tool/Project/Provider/Exception.php';
-            throw new Zend_Tool_Project_Provider_Exception('Zend_Tool_Project_Provider_View::createResource() expects \"actionName\" is the name of a controller resource to create.');
+            throw new Zend_Tool_Project_Provider_Exception('Zend_Tool_Project_Provider_View::createResource() expects \"actionName\" is the name of a controllers resource to create.');
         }
 
         if (!is_string($controllerName)) {
             require_once 'Zend/Tool/Project/Provider/Exception.php';
-            throw new Zend_Tool_Project_Provider_Exception('Zend_Tool_Project_Provider_View::createResource() expects \"controllerName\" is the name of a controller resource to create.');
+            throw new Zend_Tool_Project_Provider_Exception('Zend_Tool_Project_Provider_View::createResource() expects \"controllerName\" is the name of a controllers resource to create.');
         }
 
         $profileSearchParams = array();

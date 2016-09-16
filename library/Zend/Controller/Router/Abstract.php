@@ -41,7 +41,7 @@ abstract class Zend_Controller_Router_Abstract implements Zend_Controller_Router
     const URI_DELIMITER = '/';
 
     /**
-     * Front controller instance
+     * Front controllers instance
      *
      * @var Zend_Controller_Front
      */
@@ -66,7 +66,7 @@ abstract class Zend_Controller_Router_Abstract implements Zend_Controller_Router
     }
 
     /**
-     * Add or modify a parameter to use when instantiating an action controller
+     * Add or modify a parameter to use when instantiating an action controllers
      *
      * @param string $name
      * @param mixed  $value
@@ -81,7 +81,7 @@ abstract class Zend_Controller_Router_Abstract implements Zend_Controller_Router
     }
 
     /**
-     * Set parameters to pass to action controller constructors
+     * Set parameters to pass to action controllers constructors
      *
      * @param array $params
      * @return Zend_Controller_Router_Abstract
@@ -94,7 +94,7 @@ abstract class Zend_Controller_Router_Abstract implements Zend_Controller_Router
     }
 
     /**
-     * Retrieve a single parameter from the controller parameter stack
+     * Retrieve a single parameter from the controllers parameter stack
      *
      * @param string $name
      * @return mixed
@@ -109,7 +109,7 @@ abstract class Zend_Controller_Router_Abstract implements Zend_Controller_Router
     }
 
     /**
-     * Retrieve action controller instantiation parameters
+     * Retrieve action controllers instantiation parameters
      *
      * @return array
      */
@@ -119,7 +119,7 @@ abstract class Zend_Controller_Router_Abstract implements Zend_Controller_Router
     }
 
     /**
-     * Clear the controller parameter stack
+     * Clear the controllers parameter stack
      *
      * By default, clears all parameters. If a parameter name is given, clears
      * only that parameter; if an array of parameter names is provided, clears

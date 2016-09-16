@@ -29,7 +29,7 @@
 interface Zend_Controller_Router_Interface
 {
     /**
-     * Processes a request and sets its controller and action.  If
+     * Processes a request and sets its controllers and action.  If
      * no route was possible, an exception is thrown.
      *
      * @param  Zend_Controller_Request_Abstract
@@ -95,7 +95,7 @@ interface Zend_Controller_Router_Interface
     public function setParams(array $params);
 
     /**
-     * Retrieve a single parameter from the controller parameter stack
+     * Retrieve a single parameter from the controllers parameter stack
      *
      * @param string $name
      * @return mixed
@@ -110,7 +110,7 @@ interface Zend_Controller_Router_Interface
     public function getParams();
 
     /**
-     * Clear the controller parameter stack
+     * Clear the controllers parameter stack
      *
      * By default, clears all parameters. If a parameter name is given, clears
      * only that parameter; if an array of parameter names is provided, clears

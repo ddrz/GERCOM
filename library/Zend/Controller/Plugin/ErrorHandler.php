@@ -37,12 +37,12 @@ require_once 'Zend/Controller/Plugin/Abstract.php';
 class Zend_Controller_Plugin_ErrorHandler extends Zend_Controller_Plugin_Abstract
 {
     /**
-     * Const - No controller exception; controller does not exist
+     * Const - No controllers exception; controllers does not exist
      */
     const EXCEPTION_NO_CONTROLLER = 'EXCEPTION_NO_CONTROLLER';
 
     /**
-     * Const - No action exception; controller exists, but action does not
+     * Const - No action exception; controllers exists, but action does not
      */
     const EXCEPTION_NO_ACTION = 'EXCEPTION_NO_ACTION';
 
@@ -91,7 +91,7 @@ class Zend_Controller_Plugin_ErrorHandler extends Zend_Controller_Plugin_Abstrac
      *
      * Options may include:
      * - module
-     * - controller
+     * - controllers
      * - action
      *
      * @param  Array $options
@@ -113,8 +113,8 @@ class Zend_Controller_Plugin_ErrorHandler extends Zend_Controller_Plugin_Abstrac
         if (isset($options['module'])) {
             $this->setErrorHandlerModule($options['module']);
         }
-        if (isset($options['controller'])) {
-            $this->setErrorHandlerController($options['controller']);
+        if (isset($options['controllers'])) {
+            $this->setErrorHandlerController($options['controllers']);
         }
         if (isset($options['action'])) {
             $this->setErrorHandlerAction($options['action']);
@@ -148,7 +148,7 @@ class Zend_Controller_Plugin_ErrorHandler extends Zend_Controller_Plugin_Abstrac
     }
 
     /**
-     * Set the controller name for the error handler
+     * Set the controllers name for the error handler
      *
      * @param  string $controller
      * @return Zend_Controller_Plugin_ErrorHandler
@@ -160,7 +160,7 @@ class Zend_Controller_Plugin_ErrorHandler extends Zend_Controller_Plugin_Abstrac
     }
 
     /**
-     * Retrieve the current error handler controller
+     * Retrieve the current error handler controllers
      *
      * @return string
      */
@@ -226,7 +226,7 @@ class Zend_Controller_Plugin_ErrorHandler extends Zend_Controller_Plugin_Abstrac
     /**
      * Handle errors and exceptions
      *
-     * If the 'noErrorHandler' front controller flag has been set,
+     * If the 'noErrorHandler' front controllers flag has been set,
      * returns early.
      *
      * @param  Zend_Controller_Request_Abstract $request
@@ -244,13 +244,13 @@ class Zend_Controller_Plugin_ErrorHandler extends Zend_Controller_Plugin_Abstrac
         if ($this->_isInsideErrorHandlerLoop) {
             $exceptions = $response->getException();
             if (count($exceptions) > $this->_exceptionCountAtFirstEncounter) {
-                // Exception thrown by error handler; tell the front controller to throw it
+                // Exception thrown by error handler; tell the front controllers to throw it
                 $frontController->throwExceptions(true);
                 throw array_pop($exceptions);
             }
         }
 
-        // check for an exception AND allow the error handler controller the option to forward
+        // check for an exception AND allow the error handler controllers the option to forward
         if (($response->isException()) && (!$this->_isInsideErrorHandlerLoop)) {
             $this->_isInsideErrorHandlerLoop = true;
 

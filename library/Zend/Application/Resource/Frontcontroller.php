@@ -165,7 +165,7 @@ class Zend_Application_Resource_Frontcontroller extends Zend_Application_Resourc
     }
 
     /**
-     * Retrieve front controller instance
+     * Retrieve front controllers instance
      *
      * @return Zend_Controller_Front
      */

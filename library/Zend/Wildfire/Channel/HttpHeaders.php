@@ -62,7 +62,7 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
     protected static $_instance = null;
 
     /**
-     * The index of the plugin in the controller dispatch loop plugin stack
+     * The index of the plugin in the controllers dispatch loop plugin stack
      * @var integer
      */
     protected static $_controllerPluginStackIndex = 999;
@@ -200,7 +200,7 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
     }
 
     /**
-     * Set the index of the plugin in the controller dispatch loop plugin stack
+     * Set the index of the plugin in the controllers dispatch loop plugin stack
      *
      * @param integer $index The index of the plugin in the stack
      * @return integer The previous index.
@@ -213,7 +213,7 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
     }
 
     /**
-     * Register this object as a controller plugin.
+     * Register this object as a controllers plugin.
      *
      * @return void
      */
