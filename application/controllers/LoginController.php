@@ -19,19 +19,26 @@ class LoginController extends Zend_Controller_Action
          $dados = $this->_getAllParams(); //resgatando o array de dados do formulario (<form>)
          $email = $dados['email'];//atributo colhido no input (campo) de name="email"
          $senha = $dados['senha'];//atributo colhido no input (campo) de name="senha"
- 
+        
+         $modelPerfil = new Application_Model_Perfil();
          $modelUsuario = new Application_Model_Usuario(); 
-         $rowUsuario = $modelUsuario->fetchRow("tx_email = '$email' and tx_senha = '$senha'");
+         $modelEntidade = new Application_Model_Entidade();
+        
+         $rowIdEntidade = $modelEntidade->select("id_entidade where tx_email = '$email'");
+         $rowSenha = $modelUsuario->select("tx_senha = '$senha' where id_entidade = '$rowIdEntidade'"); 
+        
+         $rowNome = $modelEntidade->select("tx_nome where tx_email = '$email'"); //capturando o nome da tabela entidade
+         //$rowPerfil = $modelPerfil->select("tx_nome where id_perfil = '$rowIdEntidade'"); 
+        
+         if ($rowSenha){
          
-         if ($rowUsuario){
-         
-             $_SESSION['id_usuario'] = $rowUsuario['id_usuario'];//setando na session o id_usuario
-             $_SESSION['email'] = $rowUsuario['tx_email'];//setando o usuario na session
-             $_SESSION['id_perfil'] = $rowUsuario['fk_perfil'];//setando na session o id_perfil
+             $_SESSION['nome'] = $rowNome;//setando na session o nome do usuario
+             //$_SESSION['email'] = $rowUsuario['tx_email'];//setando o email do usuario na session
+             //$_SESSION['id_perfil'] = $rowUsuario['fk_perfil'];//setando na session o id_perfil
              
              $_SESSION['mensagem'] = 'Usuário logado com sucesso!';
 
-             $this->redirect('index/index');//redirecionando para a página inicial  
+             $this->redirect('index/home');//redirecionando para a página inicial  
          
          } else {
              
