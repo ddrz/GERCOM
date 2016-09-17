@@ -18,19 +18,21 @@ class LoginController extends Zend_Controller_Action
         
          $dados = $this->_getAllParams(); //resgatando o array de dados do formulario (<form>)
          $email = $dados['email'];//atributo colhido no input (campo) de name="email"
-         $senha = $dados['senha'];//atributo colhido no input (campo) de name="senha"
+         $senha = $dados['senha'];//atributo colhido no input (campo) de name="senha" 
         
          $modelPerfil = new Application_Model_Perfil();
          $modelUsuario = new Application_Model_Usuario(); 
          $modelEntidade = new Application_Model_Entidade();
         
-         $rowIdEntidade = $modelEntidade->select("id_entidade where tx_email = '$email'");
-         $rowSenha = $modelUsuario->select("tx_senha = '$senha' where id_entidade = '$rowIdEntidade'"); 
+         $rowEntidade = $modelEntidade->fetchRow("tx_email = '$email'");
+         $idEntidade = $rowEntidade['id_entidade'];
+         $rowUsuario = $modelUsuario->fetchRow("fk_usuario_entidade = '$idEntidade'");
+         $senhaBanco = base64_decode($rowUsuario['tx_senha']); //criptografado
         
-         $rowNome = $modelEntidade->select("tx_nome where tx_email = '$email'"); //capturando o nome da tabela entidade
+         //$rowNome = $modelEntidade->select("tx_nome where tx_email = '$email'"); //capturando o nome da tabela entidade
          //$rowPerfil = $modelPerfil->select("tx_nome where id_perfil = '$rowIdEntidade'"); 
         
-         if ($rowSenha){
+         if ($senhaBanco == $senha){
          
              $_SESSION['nome'] = $rowNome;//setando na session o nome do usuario
              //$_SESSION['email'] = $rowUsuario['tx_email'];//setando o email do usuario na session
