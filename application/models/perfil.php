@@ -1,14 +1,14 @@
 <?php
 class Application_Model_Perfil extends Zend_Db_Table
 {
-    protected $_name   = 'perfil';
+    protected $_name   = 'tb_perfil';
     
     public function gravar($dados)
     {
     	// Se tiver o id vai alterar, se não tiver, insere
-    	if(!empty($dados['id_perfils'])){
+    	if(!empty($dados['id_perfil'])){
 	    	// Resgatando registro no banco pelo ID
-    		$row = $this->fetchRow('id_perfils = ' . $dados['id_perfils']);
+    		$row = $this->fetchRow('id_perfil = ' . $dados['id_perfil']);
     	} else {
 	    	// Criando linha vazia
 	    	$row = $this->createRow();
@@ -23,6 +23,6 @@ class Application_Model_Perfil extends Zend_Db_Table
     
     public function excluir($dados)
     {
-    	$this->delete('id_perfils = ' . $dados['id_perfils']);
+    	$this->delete('id_perfil = ' . $dados['id_perfil']);
     }
 }
