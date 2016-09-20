@@ -7,10 +7,7 @@ class PerfilController extends Zend_Controller_Action
         $rowSet = $modelPerfil->fetchAll(); // recupera todos os dados da tabela 'tb_perfil' do banco de dados
         
         $this->view->rowSet = $rowSet;
-    }
-
-    public function formularioAction()
-    {
+  
         $dados = $this->_getAllParams(); //recupera os dados enviados pelo formulario do method POST ou GET
         $modelPerfil = new Application_Model_Perfil();
         
@@ -26,5 +23,30 @@ class PerfilController extends Zend_Controller_Action
         $this->view->row = $row;
     }
     
+     public function gravarAction()
+    {
+    
+                
+        $dados = $this->_getAllParams(); //recupera os dados enviados pelo formulario
+        
+        $modelPerfil = new Application_Model_Perfil();
+        
+        $modelPerfil->gravar($dados);
+        
+        $this->redirect('perfil/perfil');
+    }
+    
+    public function excluirAction()
+    {
+    
+        
+        $dados = $this->_getAllParams(); 
+        
+        $modelPerfil = new Application_Model_Perfil();
+        
+        $modelPerfil->excluir($dados);
+        
+        $this->redirect('perfil/perfil');
+    }
 }
 
