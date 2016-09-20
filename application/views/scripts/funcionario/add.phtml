@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>C.P.F *</label>
-                                    <input id="cpf" name="cpf" type="text" class="form-control required">
+                                    <input id="cpf" name="cpf" type="text" class="form-control required" data-mask="999.999.999-99">
                                 </div>
                                 <div class="form-group col-md-7">
                                     <label>E-Mail *</label>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>R.G *</label>
-                                    <input id="rg" name="rg" type="text" class="form-control required">
+                                    <input id="rg" name="rg" type="text" class="form-control required" data-mask="9.999.999">
                                 </div>
 
                             </div>
@@ -69,25 +69,25 @@
                             <div class="col-lg-6">
                                 <div class="form-group col-md-4">
                                     <label>C.E.P</label>
-                                    <input id="cep" name="cep" type="text" class="form-control ">
+                                    <input id="cep" name="cep" type="text" class="form-control" data-mask="99999-999">
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>U.F</label>
-                                    <input id="uf" name="uf" type="text" class="form-control">
+                                    <input id="uf" name="uf" type="text" class="form-control" disabled>
                                 </div>
                                 <div class="form-group col-md-9">
-                                    <label>Cidade</label>
-                                    <input id="cidade" name="cidade" type="text" class="form-control">
+                                    <label>Localidade</label>
+                                    <input id="localidade" name="localidade" type="text" class="form-control" disabled>
                                 </div>
                                 <div class="form-group col-md-9">
                                     <label>Bairro</label>
-                                    <input id="bairro" name="bairro" type="text" class="form-control">
+                                    <input id="bairro" name="bairro" type="text" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group col-md-9">
-                                    <label>Endereço</label>
-                                    <input id="endereco" name="endereco" type="text" class="form-control">
+                                    <label>Logradouro</label>
+                                    <input id="logradouro" name="logradouro" type="text" class="form-control" disabled>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Número</label>
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="form-group col-md-9">
                                     <label>Complemento</label>
-                                    <input id="complemento" name="complemento" type="text" class="form-control">
+                                    <input id="complemento" name="complemento" type="text" class="form-control" disabled>
                                 </div>
                             </div>
                         </div>
@@ -211,4 +211,21 @@
             }
         });
     });
+
+    $(function(){
+        $('#cep').change(function () {
+            var cep = $('#cep').val();
+            $.ajax({
+                url:'https://viacep.com.br/ws/'+ cep +'/json/',
+                success: function (dados) {
+                    $('#uf').val(dados.uf);
+                    $('#localidade').val(dados.localidade);
+                    $('#bairro').val(dados.bairro);
+                    $('#logradouro').val(dados.logradouro);
+                    $('#complemento').val(dados.complemento);
+                }
+            })
+        })
+    })
+
 </script>
