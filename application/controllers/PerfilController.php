@@ -33,6 +33,7 @@ class PerfilController extends Zend_Controller_Action
         $modelPerfil->gravar($dados);
         
          $this->redirect('perfil/perfil');
+
     }
     
     public function excluirAction()
