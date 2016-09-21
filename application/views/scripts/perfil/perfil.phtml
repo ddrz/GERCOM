@@ -43,39 +43,17 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                             <?php foreach($this->rowSet as $row){ ?>
                                         <tr>
-                                            <td align="left">Fausto Silva</td>
-                                            <td align="left">Essa eh a fera Meo</td>
-                                            <td align="left">
-                                                    <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-wrench"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-times"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-paint-brush"></i></a>
-                                            </td></tr>
-                                        <tr>
-                                            <td align="left">Administrador</td>
-                                            <td align="left">Delete quem quiser</td>
+                                            <td align="left"><?php echo $row['tx_nome'] ?></td>
+                                            <td align="left"><?php echo $row['tx_descricao'] ?></td>
                                             <td align="left">
                                                 <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-wrench"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-times"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-paint-brush"></i></a>
-                                            </td></tr>
-                                        <tr>
-                                            <td align="left">Gerente</td>
-                                            <td align="left">Ver os relatorios</td>
-                                            <td align="left">
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-wrench"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-times"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-paint-brush"></i></a>
-                                            </td></tr>
-                                        <tr>
-                                            <td align="left">Atendente</td>
-                                            <td align="left">Atende as Ligações</td>
-                                            <td align="left">
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-wrench"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-times text-navy"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-paint-brush  text-navy"></i></a>
+                                                <a class="btn btn-info btn-circle btn-outline" href="<?php echo $this->baseUrl('perfil/excluir/id_perfil/' . $row['id_perfil']); ?>"><i class="fa fa-times"></i></a>
+                                                <a class="btn btn-info btn-circle btn-outline" href="<?php echo $this->baseUrl('perfil/gravar/id_perfil/' . $row['id_perfil']); ?>" data-toggle="modal" data-target="#modalNovoPerfil"><i class="fa fa-paint-brush"></i></a>
                                             </td>
                                         </tr>
+                                             <?php } ?>
                                         
                                         </tbody>
                                     </table>
@@ -91,8 +69,8 @@
                                                 <small class="font-bold">Adicione um novo perfil, com nome e desrição.</small>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="form-group"><label>Nome:</label> <input type="text" placeholder="Digite o nome..." class="form-control" name="nome"></div>
-                                                <div class="form-group"><label>Descrição</label> <input type="text" placeholder="Digite uma breve descrição..." class="form-control" name="descricao"></div>
+                                                <div class="form-group"><label>Nome:</label> <input type="text" placeholder="Digite o nome..." class="form-control" name="nome" value="<?php echo $this->row['tx_nome']?>"></div>
+                                                <div class="form-group"><label>Descrição</label> <input type="text" placeholder="Digite uma breve descrição..." class="form-control" name="descricao" value="<?php echo $this->row['tx_descricao']?>"></div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-white" data-dismiss="modal">Fechar</button>
