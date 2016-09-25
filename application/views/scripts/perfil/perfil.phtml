@@ -23,7 +23,7 @@
                             </div>
                             <div class="ibox-content">
                                 <div class="text-right">
-                                    <button type="button" data-original-title="Criar novo perfil" class="btn btn-primary dim btn-outline" data-toggle="modal" data-target="#modalNovoPerfil">
+                                    <button type="button" data-original-title="Criar novo perfil" id="novoperfil" class="btn btn-primary dim btn-outline" data-toggle="modal" data-target="#modalNovoPerfil">
                                         <i class="fa fa-plus-square"></i>
                                         Novo Perfil
                                     </button>
@@ -68,13 +68,12 @@
                                                 <h4 class="modal-title">Adicionar Perfil</h4>
                                                 <small class="font-bold">Adicione um novo perfil, com nome e desrição.</small>
                                             </div>
-                                            <div class="modal-body">
-                                                <div class="form-group"><label>Nome:</label> <input type="text" placeholder="Digite o nome..." class="form-control" name="nome" value="<?php echo $this->row['tx_nome']?>"></div>
-                                                <div class="form-group"><label>Descrição</label> <input type="text" placeholder="Digite uma breve descrição..." class="form-control" name="descricao" value="<?php echo $this->row['tx_descricao']?>"></div>
+                                            <div class="modal-body" id="modalbody">
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-white" data-dismiss="modal">Fechar</button>
-                                                <button type="button" class="btn btn-primary">Salvar</button>
+                                                <button type="submit" class="btn btn-primary">Salvar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -85,3 +84,12 @@
                     </div>
                 </div>
             </div>
+
+    <script>
+        $(function () {
+            $('#novoperfil').click(function () {
+                $('#modalbody').load(<?php echo $this->baseUrl('perfil/form'); ?> )
+            });
+        })
+
+    </script>

@@ -20,19 +20,24 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             'funcionario/add',
             'contato/novo',
             'contato/contato',
+            'agenda/calendario',
+            'perfil/form',
+            'perfil/gravar',
+            'perfil/excluir',
         );
         $controller = $request->getControllerName();
         $action = $request->getActionName();
 
         $url = $controller . '/' . $action;
 
-        if (in_array($url, $paginasPublicas) || $_SESSION['idlogin']) {
+        if (in_array($url, $paginasPublicas) || $_SESSION['id_perfil']) {
             return true;
+        }else{
+
+            $request->setControllerName('login');
+            $request->setActionName('login');
+
         }
-
-        $request->setControllerName('login');
-        $request->setActionName('login');
-
 
     }
 }

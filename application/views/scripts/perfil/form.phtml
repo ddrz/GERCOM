@@ -1,0 +1,15 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: DDR
+ * Date: 25/09/2016
+ */
+?>
+<form action="<?php echo $this->baseUrl('perfil/gravar'); ?>">
+<div class="form-group"><label>Nome:</label>
+    <input type="text" placeholder="Digite o nome..." class="form-control" name="nome" value="<?php echo $this->row['tx_nome']?>">
+</div>
+<div class="form-group"><label>Descrição</label>
+    <input type="text" placeholder="Digite uma breve descrição..." class="form-control" name="descricao" value="<?php echo $this->row['tx_descricao']?>">
+</div>
+</form>

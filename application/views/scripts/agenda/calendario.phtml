@@ -1,0 +1,109 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: DDR
+ * Date: 25/09/2016
+ */
+?>
+
+<link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/iCheck/custom.css'); ?>" rel="stylesheet">
+
+<link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/fullcalendar/fullcalendar.css'); ?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/fullcalendar/fullcalendar.print.css'); ?>" rel='stylesheet' media='print'>
+
+
+<script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/fullcalendar/moment.min.js'); ?>"></script>
+
+<!-- jQuery UI custom -->
+<script src="<?php echo $this->baseUrl('temas/Inspinia/js/jquery-ui.custom.min.js'); ?>"></script>
+
+<!-- iCheck -->
+<script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/iCheck/icheck.min.js'); ?>"></script>
+
+<!-- Full Calendar -->
+<script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/fullcalendar/fullcalendar.min.js'); ?>"></script>
+<script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/fullcalendar/locale/pt-br.js'); ?>"></script>
+
+
+<div class="row animated fadeInDown">
+    <div class="col-md-4">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title" align="center">
+                <h5>Tarefas</h5>
+            </div>
+            <div class="ibox-content">
+                <div id='external-events'>
+                    <p>Empurre as tarefas para o calendario</p>
+                    <div class='external-event navy-bg'>Ligar pro cliente X </div>
+                    <div class='external-event navy-bg'>Entrar em contato com o Silvio Santos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title" align="center">
+                <h2><strong>Calendário</strong></h2>
+            </div>
+            <div class="ibox-content">
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+
+    $(document).ready(function() {
+
+
+        $('#external-events div.external-event').each(function() {
+
+            // store data so the calendar knows to render an event upon drop
+            $(this).data('event', {
+                title: $.trim($(this).text()), // use the element's text as the event title
+                stick: true // maintain when user navigates (see docs on the renderEvent method)
+            });
+
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 1111999,
+                revert: true,      // will cause the event to go back to its
+                revertDuration: 0  //  original position after the drag
+            });
+
+        });
+
+
+        /* initialize the calendar
+         -----------------------------------------------------------------*/
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: true,
+            droppable: true, // this allows things to be dropped onto the calendar
+            drop: function() {
+                // is the "remove after drop" checkbox checked?
+                if ($('#drop-remove').is(':checked')) {
+                    // if so, remove the element from the "Draggable Events" list
+                    $(this).remove();
+                }
+            },
+            events: [
+
+            ]
+        });
+
+
+    });
+
+</script>
