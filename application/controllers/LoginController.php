@@ -36,7 +36,7 @@ class LoginController extends Zend_Controller_Action
          
              $_SESSION['nome'] = $rowNome;//setando na session o nome do usuario
              //$_SESSION['email'] = $rowUsuario['tx_email'];//setando o email do usuario na session
-             //$_SESSION['id_perfil'] = $rowUsuario['fk_perfil'];//setando na session o id_perfil
+             $_SESSION['id_perfil'] = $rowUsuario['fk_perfil'];//setando na session o id_perfil
              
              $_SESSION['mensagem'] = 'Usuário logado com sucesso!';
 
