@@ -15,7 +15,7 @@ class LoginController extends Zend_Controller_Action
     }
     
     public function autenticaAction(){
-        
+
          $dados = $this->_getAllParams(); //resgatando o array de dados do formulario (<form>)
          $email = $dados['email'];//atributo colhido no input (campo) de name="email"
          $senha = $dados['senha'];//atributo colhido no input (campo) de name="senha" 
@@ -30,8 +30,7 @@ class LoginController extends Zend_Controller_Action
          $senhaBanco = base64_decode($rowUsuario['tx_senha']); //criptografado
         
          //$rowNome = $modelEntidade->select("tx_nome where tx_email = '$email'"); //capturando o nome da tabela entidade
-         //$rowPerfil = $modelPerfil->select("tx_nome where id_perfil = '$rowIdEntidade'"); 
-        
+         //$rowPerfil = $modelPerfil->select("tx_nome where id_perfil = '$rowIdEntidade'");
          if ($senhaBanco == $senha){
          
              $_SESSION['nome'] = $rowNome;//setando na session o nome do usuario

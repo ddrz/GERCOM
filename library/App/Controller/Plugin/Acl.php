@@ -14,6 +14,7 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
         $paginasPublicas = array(
 
             'login/login',
+            'login/autentica',
             'index/home',
             'perfil/perfil',
             'funcionario/funcionario',
