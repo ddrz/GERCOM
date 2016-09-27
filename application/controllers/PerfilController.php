@@ -64,6 +64,7 @@ class PerfilController extends Zend_Controller_Action
 
     public function formAction()
     {
+        $this->_helper->layout->disableLayout();
 
     }
 }
