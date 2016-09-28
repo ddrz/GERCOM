@@ -10,12 +10,33 @@ class FuncionarioController extends Zend_Controller_Action
 
     public function funcionarioAction()
     {
-        // action body
+        $dados = $this->_getAllParams(); 
     }
 
     public function addAction()
     {
-        // action body
+        $dados = $this->_getAllParams();
     }
-
+    
+    public function gravarAction()
+    {      
+        $dados = $this->_getAllParams(); 
+        
+        $modelEntidade = new Application_Model_Entidade();
+        
+        $modelEntidade->gravar($dados);
+        
+        $this->redirect('funcionario/funcionario');
+    }
+    
+    public function excluirAction()
+    {    
+        $dados = $this->_getAllParams();
+        
+        $modelEntidade = new Application_Model_Entidade();
+        
+        $modelEntidade->excluir($dados);
+        
+        $this->redirect('funcionario/funcionario');
+    }
 }
