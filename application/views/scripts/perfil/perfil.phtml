@@ -68,13 +68,10 @@
                                                 <h4 class="modal-title">Adicionar Perfil</h4>
                                                 <small class="font-bold">Adicione um novo perfil, com nome e desrição.</small>
                                             </div>
-                                            <div class="modal-body" id="modalbody">
+                                            <div id="modalbody">
 
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-white" data-dismiss="modal">Fechar</button>
-                                                <button type="submit" class="btn btn-primary">Salvar</button>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -88,8 +85,9 @@
     <script>
         $(function () {
             $('#novoperfil').click(function () {
-                $('#modalbody').load(<?php echo $this->baseUrl('perfil/form'); ?> )
+                $('#modalbody').load('<?php echo $this->baseUrl('perfil/form'); ?>')
             });
+
         })
 
     </script>
