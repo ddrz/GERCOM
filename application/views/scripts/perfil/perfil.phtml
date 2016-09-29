@@ -23,7 +23,7 @@
                             </div>
                             <div class="ibox-content">
                                 <div class="text-right">
-                                    <button type="button" data-original-title="Criar novo perfil" id="novoperfil" class="btn btn-primary dim btn-outline" data-toggle="modal" data-target="#modalNovoPerfil">
+                                    <button type="button"  data-original-title="Criar novo perfil" data-id-perfil="" id="novoperfil" class="btn btn-primary dim btn-outline modal-perfil" data-toggle="modal" data-target="#modalNovoPerfil">
                                         <i class="fa fa-plus-square"></i>
                                         Novo Perfil
                                     </button>
@@ -50,7 +50,7 @@
                                             <td align="left">
                                                 <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-wrench"></i></a>
                                                 <a class="btn btn-info btn-circle btn-outline" href="<?php echo $this->baseUrl('perfil/excluir/id_perfil/' . $row['id_perfil']); ?>"><i class="fa fa-times"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline"  id="novoperfil"data-toggle="modal" data-target="#modalNovoPerfil"><i class="fa fa-paint-brush"></i></a>
+                                                <a class="btn btn-info btn-circle btn-outline modal-perfil" data-id-perfil="<?php echo $row['id_perfil'] ?>" data-toggle="modal" data-target="#modalNovoPerfil"><i class="fa fa-paint-brush"></i></a>
                                             </td>
                                         </tr>
                                              <?php } ?>
@@ -83,9 +83,16 @@
             </div>
 
     <script>
+      
+       //id = componente.getAttribute("data-id-perfil");
+        //id = 1;
+        
         $(function () {
-            $('#novoperfil').click(function () {
-                $('#modalbody').load('<?php echo $this->baseUrl('perfil/form'); ?>')
+            $('.modal-perfil').click(function () {
+                
+                var id = $(this).data('id-perfil');
+                
+                $('#modalbody').load('<?php echo $this->baseUrl('perfil/form/id_perfil/') ?>' + id);
             });
 
         })
