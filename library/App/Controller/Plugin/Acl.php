@@ -19,6 +19,8 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             'perfil/perfil',
             'funcionario/funcionario',
             'funcionario/add',
+            'funcionario/gravar',
+            'funcionario/excluir',
             'contato/novo',
             'contato/contato',
             'agenda/calendario',
