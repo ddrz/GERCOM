@@ -28,6 +28,15 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             'perfil/gravar',
             'perfil/excluir',
         );
+        
+        $paginasAdministrador = array(
+            
+        );
+       
+         $paginasUsuario = array(
+            
+        );
+        
         $controller = $request->getControllerName();
         $action = $request->getActionName();
 

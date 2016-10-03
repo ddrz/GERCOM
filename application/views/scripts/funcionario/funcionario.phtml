@@ -40,28 +40,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                       <?php foreach($this->rowSet as $row){ ?>
                                 <tr>
 
-                                    <td  align="left">Silvio Santos</td>
-                                    <td  align="left">444.444.444-34</td>
+                                    <td  align="left"><?php echo $row['tx_nome'] ?></td>
+                                    <td  align="left"><?php echo $row['nu_cnpj_cpf'] ?></td>
                                     <td  align="left">
                                         <a class="btn btn-info btn-circle btn-outline" data-toggle="modal" data-target="#excluir" href="#"><i class="fa fa-times"></i></a>
                                         <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-paint-brush"></i></a>
                                     </td></tr>
-                                <tr>
-                                    <td align="left">Exemplo 2</td>
-                                    <td align="left">000.000.000.00</td>
-                                    <td align="left">
-                                        <a class="btn btn-info btn-circle btn-outline" data-toggle="modal" data-target="#excluir" href="#"><i class="fa fa-times"></i></a>
-                                        <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-paint-brush"></i></a>
-                                    </td></tr>
-                                <tr>
-                                    <td align="left">Exemplo 3</td>
-                                    <td align="left">111.111.111-11</td>
-                                    <td align="left">
-                                        <a class="btn btn-info btn-circle btn-outline" data-toggle="modal" data-target="#excluir" href="#"><i class="fa fa-times"></i></a>
-                                        <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-paint-brush"></i></a>
-                                    </td></tr>
+                                    <?php }; ?>
                                 </tbody>
                             </table>
                         </div>
