@@ -10,7 +10,11 @@ class FuncionarioController extends Zend_Controller_Action
 
     public function funcionarioAction()
     {
-        $dados = $this->_getAllParams(); 
+        $modelEntidade = new Application_Model_Entidade(); 
+        
+        $rowSet = $modelEntidade->fetchAll(); // recupera todos os dados da tabela 'tb_entidade' do banco de dados
+        
+        $this->view->rowSet = $rowSet;
     }
 
     public function addAction()
