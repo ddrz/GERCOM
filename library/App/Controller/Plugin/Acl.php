@@ -15,6 +15,7 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
 
             'login/login',
             'login/autentica',
+            'login/logout',
             'index/home',
 
         );

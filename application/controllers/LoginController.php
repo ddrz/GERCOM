@@ -16,7 +16,7 @@ class LoginController extends Zend_Controller_Action
     
      public function logoutAction()
     {
-         session_unset();
+         session_destroy();
          $_SESSION['mensagem'] = 'Logout efetuado com sucesso!';
          
          $this->redirect('login/login');
