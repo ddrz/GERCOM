@@ -16,31 +16,42 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             'login/login',
             'login/autentica',
             'index/home',
-            'perfil/perfil',
+
+        );
+
+        $paginasAdmin = array(
+            'agenda/calendario',
+            'agenda/novo',
+            'contato/novo',
+            'contato/contato',
+            'contato/contato',
             'funcionario/funcionario',
             'funcionario/add',
             'funcionario/gravar',
             'funcionario/excluir',
-            'contato/novo',
-            'contato/contato',
-            'agenda/calendario',
-            'perfil/form',
+            'perfil/perfil',
             'perfil/gravar',
             'perfil/excluir',
+            'perfil/form',
         );
+
         $controller = $request->getControllerName();
         $action = $request->getActionName();
 
         $url = $controller . '/' . $action;
 
-        if (in_array($url, $paginasPublicas) || $_SESSION['id_perfil']) {
+        if (in_array($url, $paginasPublicas)) {
             return true;
-        }else{
-
-            $request->setControllerName('login');
-            $request->setActionName('login');
-
         }
+        if (!empty($_SESSION['id_perfil'])){
+            if ($_SESSION['id_perfil'] == 1 && in_array($url, $paginasAdmin)){
+                return true;
+            }
+        }
+
+        $request->setControllerName('login');
+        $request->setActionName('login');
 
     }
 }
+?>
