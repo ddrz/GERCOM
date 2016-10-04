@@ -11,7 +11,15 @@ class LoginController extends Zend_Controller_Action
 {
     public function loginAction()
     {
-            $this->_helper->layout->disableLayout();
+         $this->_helper->layout->disableLayout();
+    }
+    
+     public function logoutAction()
+    {
+         session_unset();
+         $_SESSION['mensagem'] = 'Logout efetuado com sucesso!';
+         
+         $this->redirect('login/login');
     }
     
     public function autenticaAction(){
