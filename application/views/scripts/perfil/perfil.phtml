@@ -24,7 +24,7 @@
                             <div class="ibox-content">
                                 <div class="text-right">
                                     <button type="button"  data-original-title="Criar novo perfil" data-id-perfil="" id="novoperfil" class="btn btn-primary dim btn-outline modal-perfil" data-toggle="modal" data-target="#modalNovoPerfil">
-                                        <i class="fa fa-plus-square"></i>
+                                        <i class="fa fa-plus"></i>
                                         Novo Perfil
                                     </button>
                                     <div class="row">
@@ -37,21 +37,22 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
+                                            <th>Ações</th>
                                             <th>Nome</th>
                                             <th>Descrição</th>
-                                            <th>Ações</th>
+
                                         </tr>
                                         </thead>
                                         <tbody>
                                              <?php foreach($this->rowSet as $row){ ?>
                                         <tr>
+                                            <td align="left">
+                                                <a class="btn btn-danger btn-circle btn-outline" data-toggle="modal" data-target="#excluir" ><i class="fa fa-trash-o"></i></a>
+                                                <a class="btn btn-success btn-circle btn-outline modal-perfil" data-id-perfil="<?php echo $row['id_perfil'] ?>" data-toggle="modal" data-target="#modalNovoPerfil"><i class="fa fa-pencil"></i></a>
+                                            </td>
                                             <td align="left"><?php echo $row['tx_nome'] ?></td>
                                             <td align="left"><?php echo $row['tx_descricao'] ?></td>
-                                            <td align="left">
-                                                <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-cogs"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline" href="<?php echo $this->baseUrl('perfil/excluir/id_perfil/' . $row['id_perfil']); ?>"><i class="fa fa-trash-o"></i></a>
-                                                <a class="btn btn-info btn-circle btn-outline modal-perfil" data-id-perfil="<?php echo $row['id_perfil'] ?>" data-toggle="modal" data-target="#modalNovoPerfil"><i class="fa fa-paint-brush"></i></a>
-                                            </td>
+
                                         </tr>
                                              <?php } ?>
                                         
@@ -81,6 +82,24 @@
                     </div>
                 </div>
             </div>
+    <div class="modal inmodal" id="excluir" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInDown">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+                    <i class="fa fa-empire modal-icon"></i>
+                    <h4 class="modal-title">Excluir</h4>
+                </div>
+                <div class="modal-body" align="center">
+                    <div class="form-group"><label><span>Tem certeza que deseja excluir este PERFIL ?</span></label></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-primary" href="<?php echo $this->baseUrl('perfil/excluir/id_perfil/' . $row['id_perfil']); ?>">Sim, Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
       
