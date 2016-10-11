@@ -34,6 +34,8 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             'perfil/gravar',
             'perfil/excluir',
             'perfil/form',
+            'cliente/pagina',
+            'cliente/formulario',
         );
 
         $controller = $request->getControllerName();
