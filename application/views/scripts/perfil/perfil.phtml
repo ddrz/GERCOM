@@ -5,6 +5,7 @@
      * Date: 04/09/2016
      */
     ?>
+
     <div class="row wrapper border-bottom white-bg page-heading">
                     <div class="col-lg-10" >
                         <h2>Perfil</h2>
@@ -47,7 +48,7 @@
                                              <?php foreach($this->rowSet as $row){ ?>
                                         <tr>
                                             <td align="left">
-                                                <a class="btn btn-danger btn-circle btn-outline" data-toggle="modal" data-target="#excluir" ><i class="fa fa-trash-o"></i></a>
+                                                <a class="btn btn-danger btn-circle btn-outline excluirperfil" data-id-perfil="<?php echo $row['id_perfil'] ?>"><i class="fa fa-trash-o"></i></a>
                                                 <a class="btn btn-success btn-circle btn-outline modal-perfil" data-id-perfil="<?php echo $row['id_perfil'] ?>" data-toggle="modal" data-target="#modalNovoPerfil"><i class="fa fa-pencil"></i></a>
                                             </td>
                                             <td align="left"><?php echo $row['tx_nome'] ?></td>
@@ -82,30 +83,8 @@
                     </div>
                 </div>
             </div>
-    <div class="modal inmodal" id="excluir" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content animated bounceInDown">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
-                    <i class="fa fa-empire modal-icon"></i>
-                    <h4 class="modal-title">Excluir</h4>
-                </div>
-                <div class="modal-body" align="center">
-                    <div class="form-group"><label><span>Tem certeza que deseja excluir este PERFIL ?</span></label></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-white" data-dismiss="modal">Não</button>
-                    <button type="submit" class="btn btn-primary" href="<?php echo $this->baseUrl('perfil/excluir/id_perfil/' . $row['id_perfil']); ?>">Sim, Excluir</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
-      
-       //id = componente.getAttribute("data-id-perfil");
-        //id = 1;
-        
         $(function () {
             $('.modal-perfil').click(function () {
                 
@@ -114,6 +93,33 @@
                 $('#modalbody').load('<?php echo $this->baseUrl('perfil/form/id_perfil/') ?>' + id);
             });
 
-        })
+        });
+       $(document).ready(function () {
+
+           $('.excluirperfil').click(function () {
+               var id = $(this).data('id-perfil');
+
+               swal({
+                       title: "Deletar !!",
+                       text: "Você tem certeza que deseja excluir esse perfil ?",
+                       type: "warning",
+                       showCancelButton: true,
+                       confirmButtonColor: "#DD6B55",
+                       confirmButtonText: "Sim, quero deletar!",
+                       cancelButtonText: "Não",
+                       closeOnConfirm: false,
+                       closeOnCancel: false },
+                   function (isConfirm) {
+                       if (isConfirm) {
+                           href="<?php echo $this->baseUrl('perfil/excluir/id_perfil/') ?>",
+                           swal("Excluido!", "O perfil foi excluido com sucesso.", "success");
+                       } else {
+                           swal("Cancelado", "O perfil não foi excluido", "error");
+                       }
+                   });
+           });
+
+
+       });
 
     </script>
