@@ -1,1 +1,114 @@
-<h2>Futuro Fopmrulario do CLiente</h2>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2><strong>Formulario de Novo Cliente</strong></h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Cadastre um novo cliente</h5>
+            </div>
+            <div class="ibox-content">
+                <form method="get" class="form-horizontal">
+                    <div class="form-group"><label class="col-sm-2 control-label">Nome/Razão Social</label>
+                        <div class="col-sm-3"><input type="text" class="form-control"></div>
+                    </div>
+
+                    <div class="form-group"><label class="col-sm-2 control-label">C.P.F/C.N.P.J</label>
+                        <div class="col-sm-2"><input type="text" class="form-control"></div>
+                    </div>
+
+                    <div class="form-group"><label class="col-sm-2 control-label">I.E</label>
+                        <div class="col-sm-1"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group"><label class="col-sm-2 control-label">Tipo de Entidade<br/></label>
+                        <div class="col-sm-10">
+                            <div class="i-checks"><label> <input type="radio" value="entidadefisica" name="fisica"> <i></i>Física</label></div>
+                            <div class="i-checks"><label> <input type="radio" value="entidadejuridica" name="juridica"> <i></i>Jurídica</label></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group"><label class="col-sm-2 control-label">E-mail</label>
+                        <div class="col-sm-3"><input type="email" class="form-control"></div>
+                    </div>
+                    <div class="form-group"><label class="col-sm-2 control-label">Ativo<br/></label>
+                        <div class="col-sm-10">
+                            <div class="i-checks"><label> <input type="radio" value="sim" name="sim"> <i></i>Sim</label></div>
+                            <div class="i-checks"><label> <input type="radio" value="nao" name="nao"> <i></i>Não</label></div>
+                        </div>
+                    </div>
+                    <div class="form-group"><label class="col-sm-2 control-label">C.E.P</label>
+                        <div class="col-sm-3"><input id="cep" name="cep" type="text" class="form-control" data-mask="99999-999"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">U.F</label>
+                        <div class="col-sm-2"><input id="uf" name="uf" type="text" class="form-control" disabled></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Localidade</label>
+                        <div class="col-sm-2"><input id="localidade" name="localidade" type="text" class="form-control" disabled></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Bairro</label>
+                        <div class="col-sm-2"><input id="bairro" name="bairro" type="text" class="form-control" disabled></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Logradouro</label>
+                        <div class="col-sm-2"><input id="logradouro" name="logradouro" type="text" class="form-control" disabled></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Número</label>
+                        <div class="col-sm-2"><input id="numero" name="numero" type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Complemento</label>
+                        <div class="col-sm-2"><input id="complemento" name="complemento" type="text" class="form-control" disabled></div>
+                    </div>
+
+                    <div class="form-group">
+                            <label class="col-sm-2 control-label">Fixo</label>
+                        <div class="col-sm-2"><input id="fonefixo" name="fonefixo" type="text" class="form-control" data-mask="(99) 9999-9999" placeholder=""></div>
+                    </div>
+                    <div class="form-group">
+                            <label class="col-sm-2 control-label">Celular</label>
+                        <div class="col-sm-2"><input id="fonecel" name="fonecel" type="text" class="form-control" data-mask="(99) 9-9999-9999" placeholder=""></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Outro</label>
+                            <div class="col-sm-2"><input id="outro" name="outro" type="text" class="form-control" data-mask="(99)99999-9999"></div>
+                        </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <p>
+                                <a class="btn btn-white" href="<?php echo $this->baseUrl('cliente/pagina') ?>">Cancelar</a>
+                                <button class="btn btn-primary" type="submit">Salvar Cliente</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $('#cep').change(function () {
+            var cep = $('#cep').val();
+            $.ajax({
+                url:'https://viacep.com.br/ws/'+ cep +'/json/',
+                success: function (dados) {
+                    $('#uf').val(dados.uf);
+                    $('#localidade').val(dados.localidade);
+                    $('#bairro').val(dados.bairro);
+                    $('#logradouro').val(dados.logradouro);
+                    $('#complemento').val(dados.complemento);
+                }
+            })
+        })
+    })
+</script>
