@@ -38,7 +38,7 @@
             <h3><strong>Bem-Vindo !</strong></h3>
             <p>Sistema de Gerenciamento de Comunicações.</p>
 
-            <form class="m-t" role="form" action="<?php echo $this->baseUrl('login/autentica'); ?>">
+            <form class="m-t" method="post" role="form" action="<?php echo $this->baseUrl('login/autentica'); ?>">
                 <div class="form-group">
                     <input type="email" class="form-control" placeholder="Usuario" name="email" required="">
                 </div>
