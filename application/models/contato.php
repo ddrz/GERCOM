@@ -1,7 +1,7 @@
 <?php
 class Application_Model_Contato extends Zend_Db_Table
 {
-    protected $_name   = 'contato';
+    protected $_name   = 'tb_contato';
     
     public function gravar($dados)
     {
