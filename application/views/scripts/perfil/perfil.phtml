@@ -48,7 +48,7 @@
                                              <?php foreach($this->rowSet as $row){ ?>
                                         <tr>
                                             <td align="left">
-                                                <a class="btn btn-danger btn-circle btn-outline excluirperfil" data-id-perfil="<?php echo $row['id_perfil'] ?>"><i class="fa fa-trash-o"></i></a>
+                                                <a id="botaoExcluir" class="btn btn-danger btn-circle btn-outline excluirperfil"  data-id-perfil="<?php echo $row['id_perfil'] ?>"><i class="fa fa-trash-o"></i></a>
                                                 <a class="btn btn-success btn-circle btn-outline modal-perfil" data-id-perfil="<?php echo $row['id_perfil'] ?>" data-toggle="modal" data-target="#modalNovoPerfil"><i class="fa fa-pencil"></i></a>
                                             </td>
                                             <td align="left"><?php echo $row['tx_nome'] ?></td>
@@ -100,6 +100,9 @@
                var id = $(this).data('id-perfil');
 
                swal({
+                       url: '232',
+                       type: "POST",
+                       data: {variavel: id},
                        title: "Deletar !!",
                        text: "Você tem certeza que deseja excluir esse perfil ?",
                        type: "warning",
@@ -109,10 +112,14 @@
                        cancelButtonText: "Não",
                        closeOnConfirm: false,
                        closeOnCancel: false },
+                      <?php $php = $_POST['variavel']; ?>
                    function (isConfirm) {
                        if (isConfirm) {
-                           href="<?php echo $this->baseUrl('perfil/excluir/id_perfil/') ?>",
-                           swal("Excluido!", "O perfil foi excluido com sucesso.", "success");
+
+                           swal("Excluido!", "O perfil foi excluido com sucesso.", "success"),
+
+                            window.location.assign("<?php echo $this->baseUrl('perfil/excluir/id_perfil/') ?>" + id);
+
                        } else {
                            swal("Cancelado", "O perfil não foi excluido", "error");
                        }
