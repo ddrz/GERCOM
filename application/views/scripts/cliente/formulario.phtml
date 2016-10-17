@@ -11,78 +11,114 @@
                 <h5>Cadastre um novo cliente</h5>
             </div>
             <div class="ibox-content">
-                <form method="get" class="form-horizontal">
-                    <div class="form-group"><label class="col-sm-2 control-label">Nome/Razão Social</label>
-                        <div class="col-sm-3"><input type="text" class="form-control"></div>
-                    </div>
+                <label class="col-sm-2">Identificação</label>
+                <form method="get" class="form-inline">
 
-                    <div class="form-group"><label class="col-sm-2 control-label">C.P.F/C.N.P.J</label>
-                        <div class="col-sm-2"><input type="text" class="form-control"></div>
+                    <div class="form-group col-lg-12">
+                        <div class="col-sm-12">
+                            <div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-user"> Nome/Razão Social</span>
+                                <input type="text" placeholder="Nome ou Razão Social" class="form-control">
+                            </div>
+                            <div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-credit-card"> C.P.F/C.N.P.J</span>
+                                <input type="text" placeholder="CPF ou CNPJ" class="form-control">
+                            </div>
+                            <div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-credit-card"> Inscrição Estadual</span>
+                                <input type="text" placeholder="IE" class="form-control">
+                            </div>
+                            <div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-envelope"> E-mail</span>
+                                <input type="email" placeholder="@E-mail" class="form-control">
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="form-group"><label class="col-sm-2 control-label">I.E</label>
-                        <div class="col-sm-1"><input type="text" class="form-control"></div>
-                    </div>
-                    <div class="form-group"><label class="col-sm-2 control-label">Tipo de Entidade<br/></label>
-                        <div class="col-sm-10">
-                            <div class="i-checks"><label> <input type="radio" value="entidadefisica" name="fisica"> <i></i>Física</label></div>
-                            <div class="i-checks"><label> <input type="radio" value="entidadejuridica" name="juridica"> <i></i>Jurídica</label></div>
+                    <label class="col-sm-2">Endereço</label>
+                    <div class="form-group col-lg-12">
+                        <div class="">
+                            <div class="input-group m-b col-sm-2">
+                                <span class=" form-group input-group-addon fa fa-flag"> C.E.P</span>
+                                <input type="text" placeholder="CEP" class="form-control">
+                            </div>
+                            <div class="input-group m-b col-sm-1">
+                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> U.F</span>
+                                <input type="text" placeholder="UF" class="form-control">
+                            </div>
+                            <div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Localidade</span>
+                                <input type="text" placeholder="Localidade" class="form-control">
+                            </div>
+                            <div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Bairro</span>
+                                <input type="email" placeholder="Bairro" class="form-control">
+                            </div>
+                            <div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Logradouro</span>
+                                <input type="email" placeholder="Logradouro" class="form-control">
+                            </div>
+                            <div class="input-group m-b col-sm-1">
+                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Número</span>
+                                <input type="email" placeholder="Número" class="form-control">
+                            </div>
+                            <div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Complemento</span>
+                                <input type="email" placeholder="Complemento" class="form-control">
+                            </div>
                         </div>
                     </div>
 
-                    <div class="form-group"><label class="col-sm-2 control-label">E-mail</label>
-                        <div class="col-sm-3"><input type="email" class="form-control"></div>
-                    </div>
-                    <div class="form-group"><label class="col-sm-2 control-label">Ativo<br/></label>
-                        <div class="col-sm-10">
-                            <div class="i-checks"><label> <input type="radio" value="sim" name="sim"> <i></i>Sim</label></div>
-                            <div class="i-checks"><label> <input type="radio" value="nao" name="nao"> <i></i>Não</label></div>
-                        </div>
-                    </div>
-                    <div class="form-group"><label class="col-sm-2 control-label">C.E.P</label>
-                        <div class="col-sm-3"><input id="cep" name="cep" type="text" class="form-control" data-mask="99999-999"></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">U.F</label>
-                        <div class="col-sm-2"><input id="uf" name="uf" type="text" class="form-control" disabled></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Localidade</label>
-                        <div class="col-sm-2"><input id="localidade" name="localidade" type="text" class="form-control" disabled></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Bairro</label>
-                        <div class="col-sm-2"><input id="bairro" name="bairro" type="text" class="form-control" disabled></div>
-                    </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Logradouro</label>
-                        <div class="col-sm-2"><input id="logradouro" name="logradouro" type="text" class="form-control" disabled></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Número</label>
-                        <div class="col-sm-2"><input id="numero" name="numero" type="text" class="form-control"></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Complemento</label>
-                        <div class="col-sm-2"><input id="complemento" name="complemento" type="text" class="form-control" disabled></div>
-                    </div>
+<!--                    <div class="form-group col-sm-2">-->
+<!--                        <label class="control-label">Tipo de Entidade<br/></label>-->
+<!--                        <div class="form-inline">-->
+<!--                            <div class="i-checks"><label> <input type="radio" value="entidadefisica" name="fisica"> <i></i>Física</label></div>-->
+<!--                            <div class="i-checks"><label> <input type="radio" value="entidadejuridica" name="juridica"> <i></i>Jurídica</label></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group col-sm-2"><label class="control-label">Ativo<br/></label>-->
+<!--                        <div >-->
+<!--                            <div class="i-checks"><label> <input type="radio" value="sim" name="sim"> <i></i>Sim</label></div>-->
+<!--                            <div class="i-checks"><label> <input type="radio" value="nao" name="nao"> <i></i>Não</label></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                    <div class="form-group">
-                            <label class="col-sm-2 control-label">Fixo</label>
-                        <div class="col-sm-2"><input id="fonefixo" name="fonefixo" type="text" class="form-control" data-mask="(99) 9999-9999" placeholder=""></div>
-                    </div>
-                    <div class="form-group">
-                            <label class="col-sm-2 control-label">Celular</label>
-                        <div class="col-sm-2"><input id="fonecel" name="fonecel" type="text" class="form-control" data-mask="(99) 9-9999-9999" placeholder=""></div>
-                        </div>
+<!--                    <div class="form-group col-sm-2">-->
+<!--                        <label class="control-label">U.F</label>-->
+<!--                        <input id="uf" name="uf" type="text" class="form-control" disabled>-->
+<!--                    </div>-->
+<!--                    <div class="form-group col-sm-2">-->
+<!--                        <label class="control-label">Localidade</label>-->
+<!--                        <input id="localidade" name="localidade" type="text" class="form-control" disabled>-->
+<!--                    </div>-->
+<!--                    <div class="form-group col-sm-2">-->
+<!--                        <label class="control-label">Bairro</label>-->
+<!--                        <input id="bairro" name="bairro" type="text" class="form-control" disabled>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group col-sm-2">-->
+<!--                        <label class="control-label">Logradouro</label>-->
+<!--                        <input id="logradouro" name="logradouro" type="text" class="form-control" disabled>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-2 control-label">Número</label>-->
+<!--                        <div class="col-sm-2"><input id="numero" name="numero" type="text" class="form-control"></div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-2 control-label">Complemento</label>-->
+<!--                        <div class="col-sm-2"><input id="complemento" name="complemento" type="text" class="form-control" disabled></div>-->
+<!--                    </div>-->
+
+
+
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Outro</label>
                             <div class="col-sm-2"><input id="outro" name="outro" type="text" class="form-control" data-mask="(99)99999-9999"></div>
                         </div>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <div class="col-sm-4 col-sm-offset-2">
+                        <div class="col-sm-4">
                             <p>
                                 <a class="btn btn-white" href="<?php echo $this->baseUrl('cliente/pagina') ?>">Cancelar</a>
                                 <button class="btn btn-primary" type="submit">Salvar Cliente</button>
