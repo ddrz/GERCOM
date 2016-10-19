@@ -41,31 +41,31 @@
                         <div class="col-sm-12">
                             <div class="input-group m-b col-sm-2">
                                 <span class=" form-group input-group-addon fa fa-flag"> C.E.P</span>
-                                <input type="text" placeholder="CEP" class="form-control">
+                                <input type="text" placeholder="CEP" class="form-control" id="cep" name="cep">
                             </div>
                             <div class="input-group m-b col-sm-1">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> U.F</span>
-                                <input type="text" placeholder="UF" class="form-control">
+                                <input type="text" placeholder="UF" class="form-control" id="uf" name="uf" readonly>
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Localidade</span>
-                                <input type="text" placeholder="Localidade" class="form-control">
+                                <input type="text" placeholder="Localidade" class="form-control" id="localidade" name="localidade" readonly>
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Bairro</span>
-                                <input type="email" placeholder="Bairro" class="form-control">
+                                <input type="email" placeholder="Bairro" class="form-control" id="bairro" name="bairro" readonly>
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Logradouro</span>
-                                <input type="email" placeholder="Logradouro" class="form-control">
+                                <input type="email" placeholder="Logradouro" class="form-control" id="logradouro" name="logradouro" readonly>
                             </div>
                             <div class="input-group m-b col-sm-1">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Número</span>
-                                <input type="email" placeholder="Número" class="form-control">
+                                <input type="email" placeholder="Número" class="form-control" id="numero" name="numero">
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Complemento</span>
-                                <input type="email" placeholder="Complemento" class="form-control">
+                                <input type="email" placeholder="Complemento" class="form-control" id="complemento" name="complemento">
                             </div>
                         </div>
                     </div>
@@ -83,15 +83,15 @@
                             </div>
                         </div>
                     </div>
-                        <div class="form-group"></div>
+                        <div class="form-group">
+                                <div class="col-sm-12" align="center">
+                                    <p>
+                                        <a class="btn btn-white" href="<?php echo $this->baseUrl('cliente/pagina') ?>">Cancelar</a>
+                                        <button class="btn btn-primary" type="submit">Salvar Cliente</button>
+                                    </p>
+                        </div>
+
                 </form>
-                    <div class="form-group">
-                        <div class="col-sm-12" align="center">
-                            <p>
-                                <a class="btn btn-white" href="<?php echo $this->baseUrl('cliente/pagina') ?>">Cancelar</a>
-                                <button class="btn btn-primary" type="submit">Salvar Cliente</button>
-                            </p>
-                    </div>
                 </div>
             </div>
     </div>
