@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DiegoDenizard
- * Date: 18/05/2016
- * Time: 20:02
- */
-
 class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
 {
 
@@ -17,6 +10,7 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             'login/autentica',
             'login/logout',
             'index/home',
+            'teste/teste',
 
         );
 
@@ -36,6 +30,8 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             'cliente/pagina',
             'cliente/formulario',
             'cliente/gravar',
+            'teste/index',
+
         );
 
         $controller = $request->getControllerName();
@@ -57,4 +53,3 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
 
     }
 }
-?>
