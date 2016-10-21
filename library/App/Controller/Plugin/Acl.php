@@ -34,6 +34,18 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
 
         );
 
+        $paginasAtendente = array(
+
+
+
+        );
+
+        $paginasGerente = array(
+
+
+
+        );
+
         $controller = $request->getControllerName();
         $action = $request->getActionName();
 
