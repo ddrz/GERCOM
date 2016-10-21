@@ -15,6 +15,11 @@
                 <label class="col-sm-12">Identificação</label>
                 <form method="get" class="form-inline" action="<?php echo $this->baseUrl('cliente/gravar'); ?>">
 
+                    <input type="hidden" id="tipo_entidade" name="tp_entidade" value="cliente" />
+                    <input type="hidden" id="id_endereco" name="id_endereco" value="<?php echo  $this->baseUrl(''); ?>"/>
+                    <input type="hidden" id="id_entidade" name="id_entidade" value="<?php echo  $this->baseUrl(''); ?>"/>
+                    <input type="hidden" id="id_telefone" name="id_telefone" value="<?php echo  $this->baseUrl(''); ?>"/>
+
                     <div class="form-group col-lg-12">
                         <div class="col-sm-12">
                             <div class="input-group m-b">
@@ -51,24 +56,24 @@
                                 <input type="text" placeholder="UF" class="form-control" id="uf" name="tx_uf" readonly>
                             </div>
                             <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Localidade</span>
+                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Cidade</span>
                                 <input type="text" placeholder="Localidade" class="form-control" id="localidade" name="tx_cidade" readonly>
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Bairro</span>
-                                <input type="email" placeholder="Bairro" class="form-control" id="bairro" name="tx_bairro" readonly>
+                                <input type="text" placeholder="Bairro" class="form-control" id="bairro" name="tx_bairro" readonly>
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Logradouro</span>
-                                <input type="email" placeholder="Logradouro" class="form-control" id="logradouro" name="tx_logradouro" readonly>
+                                <input type="text" placeholder="Logradouro" class="form-control" id="logradouro" name="tx_logradouro" readonly>
                             </div>
                             <div class="input-group m-b col-sm-1">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Número</span>
-                                <input type="email" placeholder="Número" class="form-control" id="numero" name="nu_numero">
+                                <input type="text" placeholder="Número" class="form-control" id="numero" name="nu_numero">
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Complemento</span>
-                                <input type="email" placeholder="Complemento" class="form-control" id="complemento" name="tx_complemento">
+                                <input type="text" placeholder="Complemento" class="form-control" id="complemento" name="tx_complemento">
                             </div>
                         </div>
                     </div>
@@ -84,16 +89,16 @@
                                     <option value="CLARO">CLARO</option>
                                     <option value="TIM">TIM</option>
                                     <option value="VIVO">VIVO</option>
-                                    <option value="NEXTEL">NEXTEL</option>
+                                    <option value="OUTRO">OUTRO</option>
                                 </select>
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-phone"> Telefone Fixo</span>
-                                <input type="text" placeholder="Fixo" class="form-control" name="tx_fone">
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-mobile-phone"> Telefone Celular</span>
                                 <input type="text" placeholder="Celular" class="form-control" name="">
+                            </div>
+                            <div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-phone"> Telefone Fixo</span>
+                                <input type="text" placeholder="Fixo" class="form-control" name="tx_fone">
                             </div>
                         </div>
                     </div>
@@ -125,6 +130,9 @@
                     $('#logradouro').val(dados.logradouro);
                     $('#complemento').val(dados.complemento);
                 }
+//                error: function (dados) {
+//                    $('#uf').()
+//                }
             })
         })
     })
