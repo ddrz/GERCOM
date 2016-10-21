@@ -18,20 +18,23 @@
                     <div class="form-group col-lg-12">
                         <div class="col-sm-12">
                             <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-user"> Nome/Razão Social</span>
-                                <input type="text" placeholder="Nome ou Razão Social" class="form-control">
+                                <span class=" form-group input-group-addon fa fa-user"> Nome</span>
+                                <input type="text" placeholder="Nome" class="form-control" name="tx_nome">
+                            </div><div class="input-group m-b">
+                                <span class=" form-group input-group-addon fa fa-user"> Razão Social</span>
+                                <input type="text" placeholder=" Razão Social" class="form-control" name="tx_razao">
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-credit-card"> C.P.F/C.N.P.J</span>
-                                <input type="text" placeholder="CPF ou CNPJ" class="form-control">
+                                <input type="text" placeholder="CPF ou CNPJ" class="form-control" name="nu_cnpj_cpf">
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-credit-card"> Inscrição Estadual</span>
-                                <input type="text" placeholder="IE" class="form-control">
+                                <input type="text" placeholder="IE" class="form-control" name="nu_ie">
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-envelope"> E-mail</span>
-                                <input type="email" placeholder="@E-mail" class="form-control">
+                                <input type="email" placeholder="@E-mail" class="form-control" name="tx_email">
                             </div>
                         </div>
                     </div>
@@ -45,27 +48,27 @@
                             </div>
                             <div class="input-group m-b col-sm-1">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> U.F</span>
-                                <input type="text" placeholder="UF" class="form-control" id="uf" name="uf" readonly>
+                                <input type="text" placeholder="UF" class="form-control" id="uf" name="tx_uf" readonly>
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Localidade</span>
-                                <input type="text" placeholder="Localidade" class="form-control" id="localidade" name="localidade" readonly>
+                                <input type="text" placeholder="Localidade" class="form-control" id="localidade" name="tx_cidade" readonly>
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Bairro</span>
-                                <input type="email" placeholder="Bairro" class="form-control" id="bairro" name="bairro" readonly>
+                                <input type="email" placeholder="Bairro" class="form-control" id="bairro" name="tx_bairro" readonly>
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Logradouro</span>
-                                <input type="email" placeholder="Logradouro" class="form-control" id="logradouro" name="logradouro" readonly>
+                                <input type="email" placeholder="Logradouro" class="form-control" id="logradouro" name="tx_logradouro" readonly>
                             </div>
                             <div class="input-group m-b col-sm-1">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Número</span>
-                                <input type="email" placeholder="Número" class="form-control" id="numero" name="numero">
+                                <input type="email" placeholder="Número" class="form-control" id="numero" name="nu_numero">
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-ellipsis-h"> Complemento</span>
-                                <input type="email" placeholder="Complemento" class="form-control" id="complemento" name="complemento">
+                                <input type="email" placeholder="Complemento" class="form-control" id="complemento" name="tx_complemento">
                             </div>
                         </div>
                     </div>
@@ -73,13 +76,24 @@
                     <label class="col-sm-12">Contato</label>
                     <div class="form-group col-lg-12">
                         <div class="col-sm-12">
+                            <div class="input-group m-b col-sm-1">
+                                <span class=" form-group input-group-addon fa fa-phone-square"> Operadora</span>
+                                <select class="form-control" name="tx_operadora">
+                                    <option value=""></option>
+                                    <option value="OI">OI</option>
+                                    <option value="CLARO">CLARO</option>
+                                    <option value="TIM">TIM</option>
+                                    <option value="VIVO">VIVO</option>
+                                    <option value="NEXTEL">NEXTEL</option>
+                                </select>
+                            </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-phone"> Telefone Fixo</span>
-                                <input type="text" placeholder="Fixo" class="form-control">
+                                <input type="text" placeholder="Fixo" class="form-control" name="tx_fone">
                             </div>
                             <div class="input-group m-b">
                                 <span class=" form-group input-group-addon fa fa-mobile-phone"> Telefone Celular</span>
-                                <input type="text" placeholder="Celular" class="form-control">
+                                <input type="text" placeholder="Celular" class="form-control" name="">
                             </div>
                         </div>
                     </div>
