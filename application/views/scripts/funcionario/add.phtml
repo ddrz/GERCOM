@@ -47,8 +47,8 @@
                                     <input id="email" name="tx_email" type="email" class="form-control required email">
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label>R.G *</label>
-                                    <input id="rg" name="nu_rg" type="text" class="form-control required" data-mask="9.999.999">
+                                    <label>R.G</label>
+                                    <input id="rg" name="nu_rg" type="text" class="form-control">
                                 </div>
 
                             </div>
@@ -73,21 +73,21 @@
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>U.F</label>
-                                    <input id="uf" name="tx_uf" type="text" class="form-control" disabled>
+                                    <input id="uf" name="tx_uf" type="text" class="form-control" readonly>
                                 </div>
                                 <div class="form-group col-md-9">
                                     <label>Localidade</label>
-                                    <input id="localidade" name="tx_cidade" type="text" class="form-control" disabled>
+                                    <input id="localidade" name="tx_cidade" type="text" class="form-control" readonly>
                                 </div>
                                 <div class="form-group col-md-9">
                                     <label>Bairro</label>
-                                    <input id="bairro" name="tx_bairro" type="text" class="form-control" disabled>
+                                    <input id="bairro" name="tx_bairro" type="text" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group col-md-9">
                                     <label>Logradouro</label>
-                                    <input id="logradouro" name="tx_endereco" type="text" class="form-control" disabled>
+                                    <input id="logradouro" name="tx_endereco" type="text" class="form-control" readonly>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Número</label>
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="form-group col-md-9">
                                     <label>Complemento</label>
-                                    <input id="complemento" name="tx_complemento" type="text" class="form-control" disabled>
+                                    <input id="complemento" name="tx_complemento" type="text" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -106,8 +106,8 @@
                         <div class="row">
                             <div class="col-lg-3">
                             <div class="form-group">
-                                <label>Fixo</label>
-                                <input id="fonefixo" name="fonefixo" type="text" class="form-control" data-mask="(99) 9999-9999" placeholder="">
+                                <label>Fixo *</label>
+                                <input id="fonefixo" name="fonefixo" type="text" class="form-control required" data-mask="(99) 9999-9999" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Celular</label>
@@ -117,6 +117,22 @@
                                 <label>Outro</label>
                                 <input id="outro" name="outro" type="text" class="form-control" data-mask="(99)99999-9999">
                             </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h1>Login</h1>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Senha *</label>
+                                    <input id="senha" name="senha" type="password" class="form-control required" placeholder="Senha">
+                                </div>
+                                <div class="form-group">
+                                    <label>Repita sua senha *</label>
+                                    <input id="confimarsenha" name="confirmasenha" type="password" class="form-control required" placeholder="Confirme a Senha">
+                                </div>
                             </div>
                         </div>
                     </fieldset>
