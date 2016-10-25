@@ -58,7 +58,15 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             if ($_SESSION['id_perfil'] == 1 && in_array($url, $paginasAdmin)){
                 return true;
             }
+        }if (!empty($_SESSION['id_perfil'])){
+        if ($_SESSION['id_perfil'] == 2 && in_array($url, $paginasAtendente)){
+            return true;
         }
+    }if (!empty($_SESSION['id_perfil'])){
+        if ($_SESSION['id_perfil'] == 3 && in_array($url, $paginasGerente)){
+            return true;
+        }
+    }
 
         $request->setControllerName('login');
         $request->setActionName('login');
