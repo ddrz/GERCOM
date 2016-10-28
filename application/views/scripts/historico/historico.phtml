@@ -7,7 +7,7 @@
 ?>
 <div class="row wrapper border-bottom bg-success page-heading">
     <div class="col-lg-10" >
-        <h2>Contato</h2>
+        <h2>Histórico</h2>
     </div>
 </div>
 <div class="wrapper wrapper-content  animated fadeInRight">
@@ -16,13 +16,13 @@
         <div class="col-lg-16">
             <div class="ibox">
                 <div class="ibox-title" align="center">
-                    <h4>Contatos</h4>
+                    <h4>Histórico</h4>
                 </div>
                 <div class="ibox-content">
                     <div class="text-right">
-                        <button type="button" data-original-title="" onclick="window.location.href='<?php echo $this->baseUrl('contato/novo') ?>';" class="btn btn-primary dim btn-outline">
+                        <button type="button" data-original-title="" onclick="window.location.href='<?php echo $this->baseUrl('historico/novo') ?>';" class="btn btn-primary dim btn-outline">
                             <i class="fa fa-plus-square"></i>
-                           Novo Contato
+                           Novo Histórico
                         </button>
                         <div class="row">
                             <div class="col-sm-3">
@@ -40,8 +40,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                   
-                                    
+
+
                                 <tr>
                                     <td  align="left">SBT</td>
                                     <td  align="left">20/09/2016</td>
@@ -54,7 +54,7 @@
                                     <td align="left">
                                         <a class="btn btn-info btn-circle btn-outline" href="#"><i class="fa fa-paint-brush"></i></a>
                                     </td></tr>
-                                    
+
                                     <?php foreach($this->rowSet as $row){ ?>
                                 <tr>
                                     <td align="left"><?php echo $row['tx_cliente'] ?></td>
@@ -91,6 +91,3 @@
         </div>
     </div>
 </div>
-
-
-
