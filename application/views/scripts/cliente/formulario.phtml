@@ -11,129 +11,247 @@
                 <h5>Cadastre um novo cliente</h5>
             </div>
             <div class="ibox-content">
+<div class="">
+  <span>Selecione o tipo de Cliente - FISICO ou JURIDICO</span>
+<select class="form-control m-b" name="id_tipo_pessoa" id="id_tipo_pessoa">
+    <option value="fisica">Pessoa Física</option>
+    <option value="juridica">Pessoa Jurídica</option>
+</select>
+</div>
+<div id="fisica" class="formulario"><h1><strong>Cadastro de Pessoa Física</strong></h1>
+  <label class="col-sm-12">Identificação</label>
+  <form method="get" class="form-inline" action="<?php echo $this->baseUrl('cliente/gravar'); ?>">
 
-                <label class="col-sm-12">Identificação</label>
-                <form method="get" class="form-inline" action="<?php echo $this->baseUrl('cliente/gravar'); ?>">
+      <input type="hidden" id="tipo_entidade" name="tp_entidade" value="cliente" />
+      <input type="hidden" id="id_endereco" name="id_endereco" value="<?php echo  $this->baseUrl(''); ?>"/>
+      <input type="hidden" id="id_entidade" name="id_entidade" value="<?php echo  $this->baseUrl(''); ?>"/>
+      <input type="hidden" id="id_telefone" name="id_telefone" value="<?php echo  $this->baseUrl(''); ?>"/>
 
-                    <input type="hidden" id="tipo_entidade" name="tp_entidade" value="cliente" />
-                    <input type="hidden" id="id_endereco" name="id_endereco" value="<?php echo  $this->baseUrl(''); ?>"/>
-                    <input type="hidden" id="id_entidade" name="id_entidade" value="<?php echo  $this->baseUrl(''); ?>"/>
-                    <input type="hidden" id="id_telefone" name="id_telefone" value="<?php echo  $this->baseUrl(''); ?>"/>
+      <div class="form-group col-lg-12">
+          <div class="col-sm-12">
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-user"> Nome</span>
+                  <input type="text" placeholder="Nome" class="form-control" name="tx_nome">
+              </div>
 
-                    <div class="form-group col-lg-12">
-                        <div class="col-sm-12">
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-user"> Nome</span>
-                                <input type="text" placeholder="Nome" class="form-control" name="tx_nome">
-                            </div><div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-user"> Razão Social</span>
-                                <input type="text" placeholder=" Razão Social" class="form-control" name="tx_razao">
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-credit-card"> C.P.F/C.N.P.J</span>
-                                <input type="text" placeholder="CPF ou CNPJ" class="form-control" name="nu_cnpj_cpf">
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-credit-card"> Inscrição Estadual</span>
-                                <input type="text" placeholder="IE" class="form-control" name="nu_ie">
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-envelope"> E-mail</span>
-                                <input type="email" placeholder="@E-mail" class="form-control" name="tx_email">
-                            </div>
-                        </div>
-                    </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-credit-card"> C.P.F</span>
+                  <input type="text" placeholder="CPF" class="form-control" name="nu_cnpj_cpf">
+              </div>
 
-                    <label class="col-sm-12">Endereço</label>
-                    <div class="form-group col-lg-12">
-                        <div class="col-sm-12">
-                            <div class="input-group m-b col-sm-2">
-                                <span class=" form-group input-group-addon fa fa-flag"> C.E.P</span>
-                                <input type="text" placeholder="CEP" class="form-control" id="cep" name="cep">
-                            </div>
-                            <div class="input-group m-b col-sm-1">
-                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> U.F</span>
-                                <input type="text" placeholder="UF" class="form-control" id="uf" name="tx_uf" readonly>
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Cidade</span>
-                                <input type="text" placeholder="Localidade" class="form-control" id="localidade" name="tx_cidade" readonly>
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Bairro</span>
-                                <input type="text" placeholder="Bairro" class="form-control" id="bairro" name="tx_bairro" readonly>
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Logradouro</span>
-                                <input type="text" placeholder="Logradouro" class="form-control" id="logradouro" name="tx_logradouro" readonly>
-                            </div>
-                            <div class="input-group m-b col-sm-1">
-                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Número</span>
-                                <input type="text" placeholder="Número" class="form-control" id="numero" name="nu_numero">
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-ellipsis-h"> Complemento</span>
-                                <input type="text" placeholder="Complemento" class="form-control" id="complemento" name="tx_complemento">
-                            </div>
-                        </div>
-                    </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-envelope"> E-mail</span>
+                  <input type="email" placeholder="@E-mail" class="form-control" name="tx_email">
+              </div>
+          </div>
+      </div>
 
-                    <label class="col-sm-12">Contato</label>
-                    <div class="form-group col-lg-12">
-                        <div class="col-sm-12">
-                            <div class="input-group m-b col-sm-1">
-                                <span class=" form-group input-group-addon fa fa-phone-square"> Operadora</span>
-                                <select class="form-control" name="tx_operadora">
-                                    <option value=""></option>
-                                    <option value="OI">OI</option>
-                                    <option value="CLARO">CLARO</option>
-                                    <option value="TIM">TIM</option>
-                                    <option value="VIVO">VIVO</option>
-                                    <option value="OUTRO">OUTRO</option>
-                                </select>
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-mobile-phone"> Telefone Celular</span>
-                                <input type="text" placeholder="Celular" class="form-control" name="">
-                            </div>
-                            <div class="input-group m-b">
-                                <span class=" form-group input-group-addon fa fa-phone"> Telefone Fixo</span>
-                                <input type="text" placeholder="Fixo" class="form-control" name="tx_fone">
-                            </div>
-                        </div>
-                    </div>
-                        <div class="form-group">
-                                <div class="col-sm-12" align="center">
-                                    <p>
-                                        <a class="btn btn-white" href="<?php echo $this->baseUrl('cliente/pagina') ?>">Cancelar</a>
-                                        <button class="btn btn-primary" type="submit">Salvar Cliente</button>
-                                    </p>
-                        </div>
+      <label class="col-sm-12">Endereço</label>
+      <div class="form-group col-lg-12">
+          <div class="col-sm-12">
+              <div class="input-group m-b col-sm-2">
+                  <span class=" form-group input-group-addon fa fa-flag"> C.E.P</span>
+                  <input type="text" placeholder="CEP" class="form-control" id="cep" name="cep">
+              </div>
+              <div class="input-group m-b col-sm-1">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> U.F</span>
+                  <input type="text" placeholder="UF" class="form-control" id="uf" name="tx_uf" readonly>
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Cidade</span>
+                  <input type="text" placeholder="Localidade" class="form-control" id="localidade" name="tx_cidade" readonly>
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Bairro</span>
+                  <input type="text" placeholder="Bairro" class="form-control" id="bairro" name="tx_bairro" readonly>
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Logradouro</span>
+                  <input type="text" placeholder="Logradouro" class="form-control" id="logradouro" name="tx_logradouro" readonly>
+              </div>
+              <div class="input-group m-b col-sm-1">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Número</span>
+                  <input type="text" placeholder="Número" class="form-control" id="numero" name="nu_numero">
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Complemento</span>
+                  <input type="text" placeholder="Complemento" class="form-control" id="complemento" name="tx_complemento">
+              </div>
+          </div>
+      </div>
 
-                </form>
-                </div>
+      <label class="col-sm-12">Contato</label>
+      <div class="form-group col-lg-12">
+          <div class="col-sm-12">
+              <div class="input-group m-b col-sm-1">
+                  <span class=" form-group input-group-addon fa fa-phone-square"> Operadora</span>
+                  <select class="form-control" name="tx_operadora">
+                      <option value=""></option>
+                      <option value="OI">OI</option>
+                      <option value="CLARO">CLARO</option>
+                      <option value="TIM">TIM</option>
+                      <option value="VIVO">VIVO</option>
+                      <option value="OUTRO">OUTRO</option>
+                  </select>
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-mobile-phone"> Telefone Celular</span>
+                  <input type="text" placeholder="Celular" class="form-control" name="">
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-phone"> Telefone Fixo</span>
+                  <input type="text" placeholder="Fixo" class="form-control" name="tx_fone">
+              </div>
+          </div>
+      </div>
+          <div class="form-group">
+                  <div class="col-sm-12" align="center">
+                      <p>
+                          <a class="btn btn-white" href="<?php echo $this->baseUrl('cliente/pagina') ?>">Cancelar</a>
+                          <button class="btn btn-primary" type="submit">Salvar Cliente</button>
+                      </p>
+          </div>
+
+  </form>
+  </div>
+
+</div>
+<div id="juridica" class="formulario" style="display:none;"><h1><strong>Cadastro de Pessoa Jurídica</strong></h1>
+  <label class="col-sm-12">Identificação</label>
+  <form method="get" class="form-inline" action="<?php echo $this->baseUrl('cliente/gravar'); ?>">
+
+      <input type="hidden" id="tipo_entidade" name="tp_entidade" value="cliente" />
+      <input type="hidden" id="id_endereco" name="id_endereco" value="<?php echo  $this->baseUrl(''); ?>"/>
+      <input type="hidden" id="id_entidade" name="id_entidade" value="<?php echo  $this->baseUrl(''); ?>"/>
+      <input type="hidden" id="id_telefone" name="id_telefone" value="<?php echo  $this->baseUrl(''); ?>"/>
+
+      <div class="form-group col-lg-12">
+          <div class="col-sm-12">
+            <div class="input-group m-b">
+              <span class=" form-group input-group-addon fa fa-user"> Razão Social</span>
+              <input type="text" placeholder=" Razão Social" class="form-control" name="tx_razao">
             </div>
-    </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-user"> Representante</span>
+                  <input type="text" placeholder="Nome" class="form-control" name="tx_nome">
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-credit-card"> C.N.P.J</span>
+                  <input type="text" placeholder="CNPJ" class="form-control" name="nu_cnpj_cpf">
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-credit-card"> Inscrição Estadual</span>
+                  <input type="text" placeholder="IE" class="form-control" name="nu_ie">
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-envelope"> E-mail</span>
+                  <input type="email" placeholder="@E-mail" class="form-control" name="tx_email">
+              </div>
+          </div>
+      </div>
+
+      <label class="col-sm-12">Endereço</label>
+      <div class="form-group col-lg-12">
+          <div class="col-sm-12">
+              <div class="input-group m-b col-sm-2">
+                  <span class=" form-group input-group-addon fa fa-flag"> C.E.P</span>
+                  <input type="text" placeholder="CEP" class="form-control" id="cep" name="cep">
+              </div>
+              <div class="input-group m-b col-sm-1">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> U.F</span>
+                  <input type="text" placeholder="UF" class="form-control" id="uf" name="tx_uf" readonly>
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Cidade</span>
+                  <input type="text" placeholder="Localidade" class="form-control" id="localidade" name="tx_cidade" readonly>
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Bairro</span>
+                  <input type="text" placeholder="Bairro" class="form-control" id="bairro" name="tx_bairro" readonly>
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Logradouro</span>
+                  <input type="text" placeholder="Logradouro" class="form-control" id="logradouro" name="tx_logradouro" readonly>
+              </div>
+              <div class="input-group m-b col-sm-1">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Número</span>
+                  <input type="text" placeholder="Número" class="form-control" id="numero" name="nu_numero">
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-ellipsis-h"> Complemento</span>
+                  <input type="text" placeholder="Complemento" class="form-control" id="complemento" name="tx_complemento">
+              </div>
+          </div>
+      </div>
+
+      <label class="col-sm-12">Contato</label>
+      <div class="form-group col-lg-12">
+          <div class="col-sm-12">
+              <div class="input-group m-b col-sm-1">
+                  <span class=" form-group input-group-addon fa fa-phone-square"> Operadora</span>
+                  <select class="form-control" name="tx_operadora">
+                      <option value=""></option>
+                      <option value="OI">OI</option>
+                      <option value="CLARO">CLARO</option>
+                      <option value="TIM">TIM</option>
+                      <option value="VIVO">VIVO</option>
+                      <option value="OUTRO">OUTRO</option>
+                  </select>
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-mobile-phone"> Telefone Celular</span>
+                  <input type="text" placeholder="Celular" class="form-control" name="">
+              </div>
+              <div class="input-group m-b">
+                  <span class=" form-group input-group-addon fa fa-phone"> Telefone Fixo</span>
+                  <input type="text" placeholder="Fixo" class="form-control" name="tx_fone">
+              </div>
+          </div>
+      </div>
+          <div class="form-group">
+                  <div class="col-sm-12" align="center">
+                      <p>
+                          <a class="btn btn-white" href="<?php echo $this->baseUrl('cliente/pagina') ?>">Cancelar</a>
+                          <button class="btn btn-primary" type="submit">Salvar Cliente</button>
+                      </p>
+          </div>
+
+  </form>
+  </div>
+
+</div>
+</div>
 </div>
 </div>
 
 <script>
-    $(function(){
-        $('#cep').change(function () {
-            var cep = $('#cep').val();
-            $.ajax({
-                url:'https://viacep.com.br/ws/'+ cep +'/json/',
-                success: function (dados) {
-                    $('#uf').val(dados.uf);
-                    $('#localidade').val(dados.localidade);
-                    $('#bairro').val(dados.bairro);
-                    $('#logradouro').val(dados.logradouro);
-                    $('#complemento').val(dados.complemento);
-                }
+var select = document.getElementById("id_tipo_pessoa");
+var formularios = document.querySelectorAll('.formulario');
+
+select.onchange = function () {
+    for (var i = 0; i < formularios.length; i++) formularios[i].style.display = 'none';
+    var divID = select.options[select.selectedIndex].value;
+    var div = document.getElementById(divID);
+    div.style.display = 'block';
+};
+
+$(function(){
+    $('#cep').change(function () {
+        var cep = $('#cep').val();
+        $.ajax({
+            url:'https://viacep.com.br/ws/'+ cep +'/json/',
+            success: function (dados) {
+                $('#uf').val(dados.uf);
+                $('#localidade').val(dados.localidade);
+                $('#bairro').val(dados.bairro);
+                $('#logradouro').val(dados.logradouro);
+                $('#complemento').val(dados.complemento);
+            }
 //                error: function (dados) {
 //                    $('#uf').()
 //                }
-            })
         })
     })
+})
+
 </script>
