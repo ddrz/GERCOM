@@ -3,7 +3,7 @@
 class HistoricoController extends Zend_Controller_Action
 {
 
-    public function contatoAction()
+    public function historicoAction()
     {
         $modelHistorico = new Application_Model_Historico();
         $rowSet = $modelHistorico->fetchAll();
