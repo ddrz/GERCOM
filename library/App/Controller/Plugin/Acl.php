@@ -18,8 +18,8 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
         $paginasAdmin = array(
             'agenda/calendario',
             'agenda/novo',
-            'contato/novo',
-            'contato/contato',
+            'historico/novo',
+            'historico/historico',
             'funcionario/funcionario',
             'funcionario/add',
             'funcionario/gravar',
