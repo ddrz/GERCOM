@@ -5,6 +5,9 @@
      * Date: 04/09/2016
      */
     ?>
+    <link href="<?php echo $this->baseUrl('temas/Inspinia/css/plugins/footable/footable.core.css'); ?>" rel="stylesheet">
+    <script src="<?php echo $this->baseUrl('temas/Inspinia/js/plugins/footable/footable.all.min.js'); ?>"></script>
+
 
     <div class="row wrapper border-bottom white-bg page-heading">
                     <div class="col-lg-10" >
@@ -23,29 +26,21 @@
                                 <h4>Perfis</h4>
                             </div>
                             <div class="ibox-content">
-                                <div class="text-right">
-                                    <button type="button"  data-original-title="Criar novo perfil" data-id-perfil="" id="novoperfil" class="btn btn-primary dim btn-outline modal-perfil" data-toggle="modal" data-target="#modalNovoPerfil">
-                                        <i class="fa fa-plus"></i>
-                                        Novo Perfil
-                                    </button>
-                                    <div class="row">
-                                    <div class="col-sm-3">
-                                        <div class="input-group"><input type="text" placeholder="Procurar..." class="input-sm form-control"> <span class="input-group-btn">
-                                            <button type="button" class="btn btn btn-primary"><i class="fa fa-search"></i></button> </span></div>
-                                    </div>
+                                <div class="col-sm-3">
+                                <input type="text" class="form-control" id="filter"
+                                       placeholder="Procure um Perfil...">
                                 </div>
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th>Ações</th>
-                                            <th>Nome</th>
-                                            <th>Descrição</th>
 
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                             <?php foreach($this->rowSet as $row){ ?>
+                                <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
+                                    <thead>
+                                    <tr>
+                                        <th>Ações</th>
+                                        <th>Nome</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach($this->rowSet as $row){ ?>
                                         <tr>
                                             <td align="left">
                                                 <a id="botaoExcluir" class="btn btn-danger btn-circle btn-outline excluirperfil"  data-id-perfil="<?php echo $row['id_perfil'] ?>"><i class="fa fa-trash-o"></i></a>
@@ -54,29 +49,17 @@
                                             <td align="left"><?php echo $row['tx_nome'] ?></td>
                                             <td align="left"><?php echo $row['tx_descricao'] ?></td>
 
-                                        </tr>
-                                             <?php } ?>
-                                        
-                                        </tbody>
-                                    </table>
-                                </div>
-                                    </div>
-                                <div class="modal inmodal" id="modalNovoPerfil" tabindex="-1" role="dialog" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content animated bounceInRight">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
-                                                <i class="fa fa-rebel modal-icon"></i>
-                                                <h4 class="modal-title">Adicionar Perfil</h4>
-                                                <small class="font-bold">Adicione um novo perfil, com nome e desrição.</small>
-                                            </div>
-                                            <div id="modalbody">
+                                        </tr> <?php } ?>
 
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="5">
+                                            <ul class="pagination pull-right"></ul>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
 
                             </div>
                         </div>
@@ -127,5 +110,12 @@
 
 
        });
+
+        $(document).ready(function() {
+
+            $('.footable').footable();
+            $('.footable2').footable();
+
+        });
 
     </script>

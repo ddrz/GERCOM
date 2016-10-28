@@ -11,6 +11,7 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             'login/logout',
             'index/home',
             'teste/teste',
+            'teste/index',
 
         );
 
