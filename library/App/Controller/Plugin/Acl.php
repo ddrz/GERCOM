@@ -20,6 +20,7 @@ class App_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
             'agenda/novo',
             'historico/novo',
             'historico/historico',
+            'historico/gravar',
             'funcionario/funcionario',
             'funcionario/add',
             'funcionario/gravar',
