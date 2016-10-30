@@ -50,8 +50,8 @@
                                 <form method="get" class="form-horizontal" action="<?php echo $this->baseUrl('historico/gravar'); ?>">
                                     <div class="col-sm-10">
                                         <div class="row">
-                                            <div class="col-md-4">Razão:<input type="text" placeholder="Nome" class="form-control"></div>
-                                            <div class="col-md-4">Contato:<input type="text" placeholder="Telefone" class="form-control">
+                                            <div class="col-md-4">Razão:<input name="tx_razao" type="text" placeholder="Nome" class="form-control"></div>
+                                            <div class="col-md-4">Contato:<input name="" type="text" placeholder="Telefone" class="form-control">
                                                 <input type="text" name="tx_email" autocomplete=""placeholder="E-mail" class="form-control">
                                             </div>
                                                 <div class="col-md-2">Gerou Venda ?
@@ -64,7 +64,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12">Assunto/Conversa:<textarea class="form-control"> </textarea></div>
+                                            <div class="col-lg-12">Assunto/Conversa:<textarea name="tx_descricao" class="form-control"> </textarea></div>
                                         </div>
                                     </div>
 
