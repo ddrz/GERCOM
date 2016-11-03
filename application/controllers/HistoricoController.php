@@ -20,8 +20,12 @@ class HistoricoController extends Zend_Controller_Action
     {
         $dados = $this->_getAllParams(); //recupera os dados enviados pelo formulario
         $modelHistorico = new Application_Model_Historico();
+        $modelEntidade = new Application_Model_Entidade();
+        $modelEndereco = new Application_Model_Endereco();
 
+        $modelEndereco->gravar($dados);
         $modelHistorico->gravar($dados);
+        $modelEntidade->gravar($dados);
 
         $this->redirect('historico/historico');
     }
