@@ -12,6 +12,8 @@
                     <p>
                         <strong>Aqui Sera mostrado todos os clientes do funcionario X</strong>
                     </p>
+                    <input type="hidden"  data-original-title="Criar novo perfil" data-id-entidade="" id="novocontato" class="btn btn-primary dim btn-outline modal-historico" data-toggle="modal" data-target="#modalNovoHistorico">
+                          </input>
                     <div class="col-sm-4 input-group">
                       <p>
                           <a class="btn btn btn-primary right" href="<?php echo $this->baseUrl('cliente/formulario'); ?>"><i class="fa fa-user-plus"></i> Ir para novo Cliente</a>
@@ -45,7 +47,9 @@
                             <td>Setor Comercial Sul</td>
                             <td>20/05/2016</td>
                             <td>20/06/2016</td>
-                            <td><a href="<?php echo $this->baseUrl('agenda/calendario'); ?>"><i class="fa fa-calendar"></i></a></td>
+                            <td><a href="<?php echo $this->baseUrl('agenda/calendario'); ?>"><i class="fa fa-calendar"></i></a>
+<a class="btn btn-success btn-circle btn-outline modal-historico" data-id-entidade="<?php echo $row['id_entidade'] ?>" data-toggle="modal" data-target="#modalNovoHistorico"><i class="fa fa-pencil"></i></a>
+                            </td>
                         </tr><tr>
                             <td>Sistema Brasileiro de Televisão - SBT</td>
                             <td>Silvio Santos</td>
@@ -53,7 +57,9 @@
                             <td>são Paulo</td>
                             <td>20/10/2016</td>
                             <td>20/12/2016</td>
-                            <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                            <td><a href="#"><i class="fa fa-check text-navy"></i></a>
+<a class="btn btn-success btn-circle btn-outline modal-historico" data-id-entidade="<?php echo $row['id_entidade'] ?>" data-toggle="modal" data-target="#modalNovoHistorico"><i class="fa fa-pencil"></i></a>
+                            </td>
                         </tr>
                         <tr>
                             <td>Pizzaria do Faustão</td>
@@ -62,8 +68,27 @@
                             <td>Rio de Janeiro</td>
                             <td>13/05/2016</td>
                             <td>02/06/2020</td>
-                            <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                            <td><a href="#"><i class="fa fa-check text-navy"></i></a>
+<a class="btn btn-success btn-circle btn-outline modal-historico" data-id-entidade="<?php echo $row['id_entidade'] ?>" data-toggle="modal" data-target="#modalNovoHistorico"><i class="fa fa-pencil"></i></a>
+                            </td>
                         </tr>
+                        <div class="modal inmodal" id="modalNovoHistorico" tabindex="-1" role="dialog" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                            <div class="modal-content animated bounceInRight">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+                                                                        <i class="fa fa-rebel modal-icon"></i>
+                                                                        <h4 class="modal-title">Novo Contato</h4>
+                                                                        <small class="font-bold">Preencha o que foi falado com a cliente.</small>
+                                                                    </div>
+                                                                    <div id="modalbody">
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                        </div>
+
                         </tbody>
                         <tfoot>
                         <tr>
@@ -80,6 +105,16 @@
         </div>
 
         <script>
+        $(function () {
+            $('.modal-historico').click(function () {
+
+                var id = $(this).data('id-entidade');
+
+                $('#modalbody').load('<?php echo $this->baseUrl('historico/novo/id_entidade/') ?>' + id);
+            });
+
+        });
+
             $(document).ready(function() {
 
                 $('.footable').footable();

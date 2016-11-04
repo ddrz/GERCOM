@@ -14,10 +14,14 @@ class HistoricoController extends Zend_Controller_Action
     public function novoAction()
     {
 
+          $this->_helper->layout->disableLayout();
+          
     }
 
     public function gravarAction()
     {
+
+
         $dados = $this->_getAllParams(); //recupera os dados enviados pelo formulario
         $modelHistorico = new Application_Model_Historico();
         $modelEntidade = new Application_Model_Entidade();
