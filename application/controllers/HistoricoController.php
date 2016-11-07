@@ -21,11 +21,7 @@ class HistoricoController extends Zend_Controller_Action
 
     public function novoAction()
     {
-<<<<<<< HEAD
-
-          $this->_helper->layout->disableLayout();
-          
-=======
+        $this->_helper->layout->disableLayout();
        //Entidade
         $modelEntidade = new Application_Model_Entidade(); //Instanciando a model
         $rowSetEntidade = $modelEntidade->fetchAll(); //buscando TODA a tabela do banco de dados
@@ -38,13 +34,10 @@ class HistoricoController extends Zend_Controller_Action
         $modelEndereco = new Application_Model_Endereco();
         $rowSetEndereco = $modelEndereco->fetchAll();
         $this->view->rowSetEndereco = $rowSetEndereco;
->>>>>>> ce5ddf1dbd846d8f81c29ac09ac4111ddec01d2b
     }
 
     public function gravarAction()
     {
-
-
         $dados = $this->_getAllParams(); //recupera os dados enviados pelo formulario
         $modelHistorico = new Application_Model_Historico();
         $modelEntidade = new Application_Model_Entidade();
